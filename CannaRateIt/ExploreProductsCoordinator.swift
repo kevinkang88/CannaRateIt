@@ -17,5 +17,6 @@ class ExploreProductsCoordinator: Coordinator {
     }
     
     func start() {
+        self.viewController?.tabBarItem = UITabBarItem(tabBarSystemItem: .search, tag: 0)
     }
 }
