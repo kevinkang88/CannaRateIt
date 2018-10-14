@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		40236510B3E5420AD328960F /* Pods_CannaRateItUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D7F1F5DB473E01CCF21A7A7 /* Pods_CannaRateItUITests.framework */; };
 		4A6E1DEC434F9775DE4FBBD2 /* Pods_CannaRateIt.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 363C28A3DEB3CCF094F34245 /* Pods_CannaRateIt.framework */; };
+		B42614112172E25A004DA763 /* ExploreProductsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B42614102172E25A004DA763 /* ExploreProductsViewModel.swift */; };
+		B42614122172E25A004DA763 /* ExploreProductsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B42614102172E25A004DA763 /* ExploreProductsViewModel.swift */; };
+		B42614132172E25A004DA763 /* ExploreProductsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B42614102172E25A004DA763 /* ExploreProductsViewModel.swift */; };
 		B48B13EC2152017700252B10 /* ExploreProductsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B48B13EB2152017700252B10 /* ExploreProductsCoordinator.swift */; };
 		B48B13ED2152017700252B10 /* ExploreProductsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B48B13EB2152017700252B10 /* ExploreProductsCoordinator.swift */; };
 		B48B13EE2152017700252B10 /* ExploreProductsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B48B13EB2152017700252B10 /* ExploreProductsCoordinator.swift */; };
@@ -61,6 +64,7 @@
 		681A007E8678DF669C9EB8D7 /* Pods-CannaRateItTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CannaRateItTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-CannaRateItTests/Pods-CannaRateItTests.release.xcconfig"; sourceTree = "<group>"; };
 		8856FEC42A441D9A86D62A57 /* Pods-CannaRateIt.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CannaRateIt.release.xcconfig"; path = "Pods/Target Support Files/Pods-CannaRateIt/Pods-CannaRateIt.release.xcconfig"; sourceTree = "<group>"; };
 		B18058AD13C77C8B6F40689B /* Pods-CannaRateItTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CannaRateItTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CannaRateItTests/Pods-CannaRateItTests.debug.xcconfig"; sourceTree = "<group>"; };
+		B42614102172E25A004DA763 /* ExploreProductsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreProductsViewModel.swift; sourceTree = "<group>"; };
 		B48B13EB2152017700252B10 /* ExploreProductsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreProductsCoordinator.swift; sourceTree = "<group>"; };
 		B48D28A52169AA05006ED5C5 /* TabbarCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabbarCoordinator.swift; sourceTree = "<group>"; };
 		B4D85765214DCFB800EDDA73 /* CannaRateIt.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CannaRateIt.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -173,6 +177,7 @@
 				B48B13EB2152017700252B10 /* ExploreProductsCoordinator.swift */,
 				B4FFD2A62168ED60005964BF /* ExploreProductsViewController.swift */,
 				B48D28A52169AA05006ED5C5 /* TabbarCoordinator.swift */,
+				B42614102172E25A004DA763 /* ExploreProductsViewModel.swift */,
 			);
 			path = CannaRateIt;
 			sourceTree = "<group>";
@@ -395,6 +400,7 @@
 				B48B13EC2152017700252B10 /* ExploreProductsCoordinator.swift in Sources */,
 				B4D85771214DCFB800EDDA73 /* CannaRateIt.xcdatamodeld in Sources */,
 				B4D8576B214DCFB800EDDA73 /* ViewController.swift in Sources */,
+				B42614112172E25A004DA763 /* ExploreProductsViewModel.swift in Sources */,
 				B4D85769214DCFB800EDDA73 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -403,6 +409,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B42614122172E25A004DA763 /* ExploreProductsViewModel.swift in Sources */,
 				B48B13ED2152017700252B10 /* ExploreProductsCoordinator.swift in Sources */,
 				B4D8579B214DF91000EDDA73 /* Coordinator.swift in Sources */,
 				B4D85781214DCFBA00EDDA73 /* CannaRateItTests.swift in Sources */,
@@ -416,6 +423,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B42614132172E25A004DA763 /* ExploreProductsViewModel.swift in Sources */,
 				B48B13EE2152017700252B10 /* ExploreProductsCoordinator.swift in Sources */,
 				B4D8579C214DF91000EDDA73 /* Coordinator.swift in Sources */,
 				B4D8578C214DCFBA00EDDA73 /* CannaRateItUITests.swift in Sources */,

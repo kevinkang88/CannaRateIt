@@ -10,10 +10,14 @@ import Foundation
 import UIKit
 
 class ExploreProductsCoordinator: Coordinator {
-    var viewController: ExploreProductsViewController?
+    var navigationController: UINavigationController?
+    private var viewController: ExploreProductsViewController?
 	
     init() {
         self.viewController = ExploreProductsViewController(nibName: "ExploreProductsViewController", bundle: nil)
+        if let viewController = self.viewController {
+            self.navigationController = UINavigationController(rootViewController: viewController)
+        }
     }
     
     func start() {
