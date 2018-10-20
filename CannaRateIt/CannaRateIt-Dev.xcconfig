@@ -1,0 +1,11 @@
+//
+//  CannaRateIt-Dev.xcconfig
+//  CannaRateIt
+//
+//  Created by Dong Kang on 10/20/18.
+//  Copyright © 2018 Yooniverse. All rights reserved.
+//
+
+// Configuration settings file format documentation can be found at:
+// https://help.apple.com/xcode/#/dev745c5c974
+base_url = https://cri-development.herokuapp.com/
