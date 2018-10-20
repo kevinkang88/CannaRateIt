@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		40236510B3E5420AD328960F /* Pods_CannaRateItUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D7F1F5DB473E01CCF21A7A7 /* Pods_CannaRateItUITests.framework */; };
-		4A6E1DEC434F9775DE4FBBD2 /* Pods_CannaRateIt.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 363C28A3DEB3CCF094F34245 /* Pods_CannaRateIt.framework */; };
 		B42614112172E25A004DA763 /* ExploreProductsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B42614102172E25A004DA763 /* ExploreProductsViewModel.swift */; };
 		B42614122172E25A004DA763 /* ExploreProductsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B42614102172E25A004DA763 /* ExploreProductsViewModel.swift */; };
 		B42614132172E25A004DA763 /* ExploreProductsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B42614102172E25A004DA763 /* ExploreProductsViewModel.swift */; };
@@ -41,7 +39,6 @@
 		B4FFD2A72168ED60005964BF /* ExploreProductsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4FFD2A62168ED60005964BF /* ExploreProductsViewController.swift */; };
 		B4FFD2A8216904C5005964BF /* ExploreProductsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4FFD2A62168ED60005964BF /* ExploreProductsViewController.swift */; };
 		B4FFD2A9216904C6005964BF /* ExploreProductsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4FFD2A62168ED60005964BF /* ExploreProductsViewController.swift */; };
-		C97A5FD48E605A876FF7023F /* Pods_CannaRateItTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7A1329328362B9020F4D905 /* Pods_CannaRateItTests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,12 +59,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		1D7F1F5DB473E01CCF21A7A7 /* Pods_CannaRateItUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CannaRateItUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		2E4A40896822087AF2CF0428 /* Pods-CannaRateIt.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CannaRateIt.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CannaRateIt/Pods-CannaRateIt.debug.xcconfig"; sourceTree = "<group>"; };
-		363C28A3DEB3CCF094F34245 /* Pods_CannaRateIt.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CannaRateIt.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		681A007E8678DF669C9EB8D7 /* Pods-CannaRateItTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CannaRateItTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-CannaRateItTests/Pods-CannaRateItTests.release.xcconfig"; sourceTree = "<group>"; };
-		8856FEC42A441D9A86D62A57 /* Pods-CannaRateIt.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CannaRateIt.release.xcconfig"; path = "Pods/Target Support Files/Pods-CannaRateIt/Pods-CannaRateIt.release.xcconfig"; sourceTree = "<group>"; };
-		B18058AD13C77C8B6F40689B /* Pods-CannaRateItTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CannaRateItTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CannaRateItTests/Pods-CannaRateItTests.debug.xcconfig"; sourceTree = "<group>"; };
 		B42614102172E25A004DA763 /* ExploreProductsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreProductsViewModel.swift; sourceTree = "<group>"; };
 		B48B13EB2152017700252B10 /* ExploreProductsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreProductsCoordinator.swift; sourceTree = "<group>"; };
 		B48D28A52169AA05006ED5C5 /* TabbarCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabbarCoordinator.swift; sourceTree = "<group>"; };
@@ -94,9 +85,6 @@
 		B4D8579D214E4B1B00EDDA73 /* ExploreProductsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ExploreProductsViewController.xib; sourceTree = "<group>"; };
 		B4D857A1214E662500EDDA73 /* ApplicationCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationCoordinator.swift; sourceTree = "<group>"; };
 		B4FFD2A62168ED60005964BF /* ExploreProductsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreProductsViewController.swift; sourceTree = "<group>"; };
-		C7A1329328362B9020F4D905 /* Pods_CannaRateItTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CannaRateItTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		CDA4BD99A78FD70F8E2F6941 /* Pods-CannaRateItUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CannaRateItUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CannaRateItUITests/Pods-CannaRateItUITests.debug.xcconfig"; sourceTree = "<group>"; };
-		E2F5B03FD2D347EB90375BEA /* Pods-CannaRateItUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CannaRateItUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-CannaRateItUITests/Pods-CannaRateItUITests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,7 +92,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4A6E1DEC434F9775DE4FBBD2 /* Pods_CannaRateIt.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -112,7 +99,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C97A5FD48E605A876FF7023F /* Pods_CannaRateItTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -120,36 +106,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				40236510B3E5420AD328960F /* Pods_CannaRateItUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		7155AA94BB860F9073C1A8D1 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				2E4A40896822087AF2CF0428 /* Pods-CannaRateIt.debug.xcconfig */,
-				8856FEC42A441D9A86D62A57 /* Pods-CannaRateIt.release.xcconfig */,
-				B18058AD13C77C8B6F40689B /* Pods-CannaRateItTests.debug.xcconfig */,
-				681A007E8678DF669C9EB8D7 /* Pods-CannaRateItTests.release.xcconfig */,
-				CDA4BD99A78FD70F8E2F6941 /* Pods-CannaRateItUITests.debug.xcconfig */,
-				E2F5B03FD2D347EB90375BEA /* Pods-CannaRateItUITests.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
-		8005E691552CCE920872E3D9 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				363C28A3DEB3CCF094F34245 /* Pods_CannaRateIt.framework */,
-				C7A1329328362B9020F4D905 /* Pods_CannaRateItTests.framework */,
-				1D7F1F5DB473E01CCF21A7A7 /* Pods_CannaRateItUITests.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 		B4D8575C214DCFB800EDDA73 = {
 			isa = PBXGroup;
 			children = (
@@ -157,8 +119,6 @@
 				B4D8577F214DCFBA00EDDA73 /* CannaRateItTests */,
 				B4D8578A214DCFBA00EDDA73 /* CannaRateItUITests */,
 				B4D85766214DCFB800EDDA73 /* Products */,
-				7155AA94BB860F9073C1A8D1 /* Pods */,
-				8005E691552CCE920872E3D9 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -223,7 +183,6 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = B4D85790214DCFBA00EDDA73 /* Build configuration list for PBXNativeTarget "CannaRateIt" */;
 			buildPhases = (
-				1E804D425E5C675C91E40698 /* [CP] Check Pods Manifest.lock */,
 				B4D85761214DCFB800EDDA73 /* Sources */,
 				B4D85762214DCFB800EDDA73 /* Frameworks */,
 				B4D85763214DCFB800EDDA73 /* Resources */,
@@ -241,7 +200,6 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = B4D85793214DCFBA00EDDA73 /* Build configuration list for PBXNativeTarget "CannaRateItTests" */;
 			buildPhases = (
-				C01C6FACD547EBDE34BAEF2E /* [CP] Check Pods Manifest.lock */,
 				B4D85778214DCFBA00EDDA73 /* Sources */,
 				B4D85779214DCFBA00EDDA73 /* Frameworks */,
 				B4D8577A214DCFBA00EDDA73 /* Resources */,
@@ -260,7 +218,6 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = B4D85796214DCFBA00EDDA73 /* Build configuration list for PBXNativeTarget "CannaRateItUITests" */;
 			buildPhases = (
-				EC8965BA6CB8EE2B5F4A17E1 /* [CP] Check Pods Manifest.lock */,
 				B4D85783214DCFBA00EDDA73 /* Sources */,
 				B4D85784214DCFBA00EDDA73 /* Frameworks */,
 				B4D85785214DCFBA00EDDA73 /* Resources */,
@@ -349,63 +306,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		1E804D425E5C675C91E40698 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-CannaRateIt-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		C01C6FACD547EBDE34BAEF2E /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-CannaRateItTests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		EC8965BA6CB8EE2B5F4A17E1 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-CannaRateItUITests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		B4D85761214DCFB800EDDA73 /* Sources */ = {
