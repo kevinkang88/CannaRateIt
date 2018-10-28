@@ -9,11 +9,11 @@
 import Foundation
 
 public enum PlistKey {
-	case BaseURL
+	case baseURL
 	
 	func value() -> String {
 		switch self {
-		case .BaseURL:
+		case .baseURL:
 			return "base_url"
 		}
 	}
@@ -32,8 +32,8 @@ public struct Environment {
 	
 	func getValue(key: PlistKey) -> String {
 		switch key {
-		case .BaseURL:
-			return plist[PlistKey.BaseURL.value()] as! String
+		case .baseURL:
+			return plist[PlistKey.baseURL.value()] as! String
 		}
 	}
 }
