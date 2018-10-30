@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class ExploreProductsViewController: UIViewController, UISearchControllerDelegate, UISearchResultsUpdating, UISearchBarDelegate {
+class ExploreProductsViewController: UIViewController, UISearchControllerDelegate, UISearchResultsUpdating, UISearchBarDelegate, UITableViewDelegate, UITableViewDataSource {
 	
 	@IBOutlet weak var tableView: UITableView!
 	
@@ -35,6 +35,11 @@ class ExploreProductsViewController: UIViewController, UISearchControllerDelegat
 		navigationController?.navigationBar.prefersLargeTitles = false
 		navigationItem.largeTitleDisplayMode = .never
 		
+		tableView.delegate = self
+		tableView.dataSource = self
+		tableView.register(ProductSearchResultsCell.self, forCellReuseIdentifier: "Cell")
+		tableView.register(UINib(nibName: "ProductSearchResultsCell", bundle: nil), forCellReuseIdentifier: "Cell")
+		tableView.tableFooterView = UIView()
     }
 	
 	func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
@@ -44,11 +49,44 @@ class ExploreProductsViewController: UIViewController, UISearchControllerDelegat
 					print(error)
 					return
 				}
-				
-				
-				
-				
+				DispatchQueue.main.async {
+					self.foundData = products
+					self.tableView.reloadData()
+				}
 			}
 		}
+	}
+	
+	var foundData: [Product]?
+	
+	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+		guard let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as? ProductSearchResultsCell else {
+			return UITableViewCell()
+		}
+		
+		if let foundData = foundData {
+			let productData = foundData[indexPath.row]
+			cell.brandNameLabel.text = productData.brandName
+			cell.flavorLabel.text = productData.flavor
+			cell.categoriesLabel.text = productData.category
+			cell.strainTypeLabel.text = productData.strainType
+		}
+		
+		return cell
+	}
+	
+	func numberOfSections(in tableView: UITableView) -> Int {
+		return 1
+	}
+	
+	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+		if let foundDataCount = foundData?.count {
+			return foundDataCount
+		}
+		return 0
+	}
+	
+	func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+		return 240
 	}
 }
