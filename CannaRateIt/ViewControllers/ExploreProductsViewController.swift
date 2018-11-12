@@ -97,7 +97,6 @@ class ExploreProductsViewController: UIViewController, UISearchControllerDelegat
 		guard let foundData = self.foundData else {
 			return
 		}
-		print("yellow")
 		let productSelected = foundData[indexPath.row]
 		coordinator?.navigate(from: self, to: ProductViewController(), with: "showProductView", and: self.viewModel)
 	}
