@@ -12,6 +12,7 @@ import UIKit
 class ExploreProductsViewController: UIViewController, UISearchControllerDelegate, UISearchResultsUpdating, UISearchBarDelegate, UITableViewDelegate, UITableViewDataSource {
 	
 	@IBOutlet weak var tableView: UITableView!
+	var coordinator: ExploreProductsCoordinator?
 	
 	func updateSearchResults(for searchController: UISearchController) {
 		
@@ -21,6 +22,7 @@ class ExploreProductsViewController: UIViewController, UISearchControllerDelegat
     
     override func viewDidLoad() {
         super.viewDidLoad()
+		self.coordinator = ExploreProductsCoordinator()
 		let searchController = UISearchController(searchResultsController: nil)
 		searchController.searchResultsUpdater = self
 		searchController.obscuresBackgroundDuringPresentation = false
@@ -88,5 +90,15 @@ class ExploreProductsViewController: UIViewController, UISearchControllerDelegat
 	
 	func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
 		return 240
+	}
+	
+	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+		//
+		guard let foundData = self.foundData else {
+			return
+		}
+		print("yellow")
+		let productSelected = foundData[indexPath.row]
+		coordinator?.navigate(from: self, to: ProductViewController(), with: "showProductView", and: self.viewModel)
 	}
 }

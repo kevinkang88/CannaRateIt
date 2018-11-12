@@ -21,13 +21,13 @@ class TabbarCoordinator: Coordinator {
         
         let exploreProductsCoordinator = ExploreProductsCoordinator()
         exploreProductsCoordinator.start()
-        
-        guard let exploreProductsNavigationController = exploreProductsCoordinator.navigationController else{
+		
+        guard let exploreProductsNavigationController = exploreProductsCoordinator.navigationController else {
             return
         }
-        
+		
         tabbarController.setViewControllers([exploreProductsNavigationController], animated: true)
-        
+		
         self.window.rootViewController = tabbarController
         self.window.makeKeyAndVisible()
     }

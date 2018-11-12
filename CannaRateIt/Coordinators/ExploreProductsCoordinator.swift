@@ -23,4 +23,13 @@ class ExploreProductsCoordinator: Coordinator {
     func start() {
         self.viewController?.tabBarItem = UITabBarItem(tabBarSystemItem: .search, tag: 0)
     }
+	
+	func navigate(from source: UIViewController, to destination: UIViewController, with identifier: String?, and sender: AnyObject?) {
+		if let navigationController = source.navigationController,
+			let destination = destination as? ProductViewController, let _ = sender as? ExploreProductsViewModel {
+			print("inside yellow")
+			let productCoordinator = ProductCoordinator(navigationController: navigationController)
+			productCoordinator.start()
+		}
+	}
 }
