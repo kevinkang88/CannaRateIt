@@ -26,8 +26,8 @@ class ExploreProductsCoordinator: Coordinator {
 	
 	func navigate(from source: UIViewController, to destination: UIViewController, with identifier: String?, and sender: AnyObject?) {
 		if let navigationController = source.navigationController,
-			let destination = destination as? ProductViewController, let _ = sender as? ExploreProductsViewModel {
-			let productCoordinator = ProductCoordinator(navigationController: navigationController)
+			let destination = destination as? ProductViewController, let viewModel = sender as? ProductViewModel {
+			let productCoordinator = ProductCoordinator(navigationController: navigationController, viewModel: viewModel)
 			productCoordinator.start()
 		}
 	}

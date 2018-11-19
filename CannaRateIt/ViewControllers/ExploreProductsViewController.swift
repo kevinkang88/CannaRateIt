@@ -93,11 +93,12 @@ class ExploreProductsViewController: UIViewController, UISearchControllerDelegat
 	}
 	
 	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-		//
 		guard let foundData = self.foundData else {
 			return
 		}
 		let productSelected = foundData[indexPath.row]
-		coordinator?.navigate(from: self, to: ProductViewController(), with: "showProductView", and: self.viewModel)
+		let productViewModel = ProductViewModel(product: productSelected)
+		
+		coordinator?.navigate(from: self, to: ProductViewController() , with: "showProductView", and: productViewModel)
 	}
 }

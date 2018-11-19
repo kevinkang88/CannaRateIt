@@ -12,10 +12,13 @@ import UIKit
 class ProductCoordinator: Coordinator {
 	private var navigationController: UINavigationController
 	private var viewController: ProductViewController
+	private var viewModel: ProductViewModel
 	
-	 init(navigationController: UINavigationController) {
+	init(navigationController: UINavigationController, viewModel: ProductViewModel) {
 		self.navigationController = navigationController
+		self.viewModel = viewModel
 		self.viewController = ProductViewController(nibName: "ProductViewController", bundle: nil)
+		self.viewController.viewModel = viewModel
 	}
 	
 	func start() {
