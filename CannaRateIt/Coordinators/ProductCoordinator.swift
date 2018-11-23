@@ -23,5 +23,12 @@ class ProductCoordinator: Coordinator {
 	
 	func start() {
 		self.navigationController.pushViewController(viewController, animated: true)
-	} 
+	}
+	
+	func navigate(from source: UIViewController, to destination: UIViewController, with identifier: String?, and sender: AnyObject?) {
+		if let navigationController = source.navigationController {
+			let addCommentCoordinator = AddCommentsCoordinator(navigationController: navigationController)
+			addCommentCoordinator.start()
+		}
+	}
 }

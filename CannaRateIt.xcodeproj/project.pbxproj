@@ -68,6 +68,15 @@
 		B4D857A2214E662500EDDA73 /* ApplicationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4D857A1214E662500EDDA73 /* ApplicationCoordinator.swift */; };
 		B4D857A3214E662500EDDA73 /* ApplicationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4D857A1214E662500EDDA73 /* ApplicationCoordinator.swift */; };
 		B4D857A4214E662500EDDA73 /* ApplicationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4D857A1214E662500EDDA73 /* ApplicationCoordinator.swift */; };
+		B4E3DF7921A77E68004214C6 /* AddCommentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4E3DF7821A77E68004214C6 /* AddCommentViewController.swift */; };
+		B4E3DF7A21A77E68004214C6 /* AddCommentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4E3DF7821A77E68004214C6 /* AddCommentViewController.swift */; };
+		B4E3DF7B21A77E68004214C6 /* AddCommentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4E3DF7821A77E68004214C6 /* AddCommentViewController.swift */; };
+		B4E3DF7D21A77E8C004214C6 /* AddCommentViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B4E3DF7C21A77E8C004214C6 /* AddCommentViewController.xib */; };
+		B4E3DF7E21A77E8C004214C6 /* AddCommentViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B4E3DF7C21A77E8C004214C6 /* AddCommentViewController.xib */; };
+		B4E3DF7F21A77E8C004214C6 /* AddCommentViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B4E3DF7C21A77E8C004214C6 /* AddCommentViewController.xib */; };
+		B4E3DF8121A796B8004214C6 /* AddCommentsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4E3DF8021A796B8004214C6 /* AddCommentsCoordinator.swift */; };
+		B4E3DF8221A796B8004214C6 /* AddCommentsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4E3DF8021A796B8004214C6 /* AddCommentsCoordinator.swift */; };
+		B4E3DF8321A796B8004214C6 /* AddCommentsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4E3DF8021A796B8004214C6 /* AddCommentsCoordinator.swift */; };
 		B4FFD2A72168ED60005964BF /* ExploreProductsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4FFD2A62168ED60005964BF /* ExploreProductsViewController.swift */; };
 		B4FFD2A8216904C5005964BF /* ExploreProductsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4FFD2A62168ED60005964BF /* ExploreProductsViewController.swift */; };
 		B4FFD2A9216904C6005964BF /* ExploreProductsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4FFD2A62168ED60005964BF /* ExploreProductsViewController.swift */; };
@@ -126,6 +135,9 @@
 		B4D85799214DF91000EDDA73 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		B4D8579D214E4B1B00EDDA73 /* ExploreProductsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ExploreProductsViewController.xib; sourceTree = "<group>"; };
 		B4D857A1214E662500EDDA73 /* ApplicationCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationCoordinator.swift; sourceTree = "<group>"; };
+		B4E3DF7821A77E68004214C6 /* AddCommentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCommentViewController.swift; sourceTree = "<group>"; };
+		B4E3DF7C21A77E8C004214C6 /* AddCommentViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddCommentViewController.xib; sourceTree = "<group>"; };
+		B4E3DF8021A796B8004214C6 /* AddCommentsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCommentsCoordinator.swift; sourceTree = "<group>"; };
 		B4FFD2A62168ED60005964BF /* ExploreProductsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreProductsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -162,6 +174,7 @@
 				B4D85799214DF91000EDDA73 /* Coordinator.swift */,
 				B4D857A1214E662500EDDA73 /* ApplicationCoordinator.swift */,
 				B48B13EB2152017700252B10 /* ExploreProductsCoordinator.swift */,
+				B4E3DF8021A796B8004214C6 /* AddCommentsCoordinator.swift */,
 			);
 			path = Coordinators;
 			sourceTree = "<group>";
@@ -174,6 +187,8 @@
 				B494124F21888B5C008A37BA /* ProductViewController.swift */,
 				B480A6852198856F0098C129 /* ProductViewController.xib */,
 				B4D8579D214E4B1B00EDDA73 /* ExploreProductsViewController.xib */,
+				B4E3DF7821A77E68004214C6 /* AddCommentViewController.swift */,
+				B4E3DF7C21A77E8C004214C6 /* AddCommentViewController.xib */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -375,6 +390,7 @@
 				B4D8579E214E4B1B00EDDA73 /* ExploreProductsViewController.xib in Resources */,
 				B4AEDB78217BACD500C99054 /* CannaRateIt-Dev.xcconfig in Resources */,
 				B480A6862198856F0098C129 /* ProductViewController.xib in Resources */,
+				B4E3DF7D21A77E8C004214C6 /* AddCommentViewController.xib in Resources */,
 				B4D85776214DCFBA00EDDA73 /* LaunchScreen.storyboard in Resources */,
 				B4AEDB7A217BACE500C99054 /* CannaRateIt-Staging.xcconfig in Resources */,
 				B4AEDB7C217BAE8D00C99054 /* CannaRateIt-Prod.xcconfig in Resources */,
@@ -387,6 +403,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B4E3DF7E21A77E8C004214C6 /* AddCommentViewController.xib in Resources */,
 				B41BBA85218678DB008AAD07 /* ProductSearchResultsCell.xib in Resources */,
 				B480A6872198856F0098C129 /* ProductViewController.xib in Resources */,
 				B4D8579F214E4B1B00EDDA73 /* ExploreProductsViewController.xib in Resources */,
@@ -397,6 +414,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B4E3DF7F21A77E8C004214C6 /* AddCommentViewController.xib in Resources */,
 				B41BBA86218678DB008AAD07 /* ProductSearchResultsCell.xib in Resources */,
 				B480A6882198856F0098C129 /* ProductViewController.xib in Resources */,
 				B4D857A0214E4B1B00EDDA73 /* ExploreProductsViewController.xib in Resources */,
@@ -416,6 +434,7 @@
 				B439026F217D5CEB00AC411B /* AuthService.swift in Sources */,
 				B41BBA8821867CA2008AAD07 /* ProductSearchResultsCell.swift in Sources */,
 				B48D28A62169AA05006ED5C5 /* TabbarCoordinator.swift in Sources */,
+				B4E3DF8121A796B8004214C6 /* AddCommentsCoordinator.swift in Sources */,
 				B494125421888BBF008A37BA /* ProductCoordinator.swift in Sources */,
 				B494125021888B5C008A37BA /* ProductViewController.swift in Sources */,
 				B4D8579A214DF91000EDDA73 /* Coordinator.swift in Sources */,
@@ -423,6 +442,7 @@
 				B4D85771214DCFB800EDDA73 /* CannaRateIt.xcdatamodeld in Sources */,
 				B4D8576B214DCFB800EDDA73 /* ViewController.swift in Sources */,
 				B42614112172E25A004DA763 /* ExploreProductsViewModel.swift in Sources */,
+				B4E3DF7921A77E68004214C6 /* AddCommentViewController.swift in Sources */,
 				B4D85769214DCFB800EDDA73 /* AppDelegate.swift in Sources */,
 				B40370B42197BDC500848F93 /* ProductViewModel.swift in Sources */,
 				B4AEDB82217BC1D300C99054 /* Environment.swift in Sources */,
@@ -441,6 +461,8 @@
 				B4D8579B214DF91000EDDA73 /* Coordinator.swift in Sources */,
 				B42535A62197CCD300AF5350 /* LoginViewModel.swift in Sources */,
 				B4D85781214DCFBA00EDDA73 /* CannaRateItTests.swift in Sources */,
+				B4E3DF8221A796B8004214C6 /* AddCommentsCoordinator.swift in Sources */,
+				B4E3DF7A21A77E68004214C6 /* AddCommentViewController.swift in Sources */,
 				B443F38A21840FE40021BCAE /* Environment.swift in Sources */,
 				B494125521888BBF008A37BA /* ProductCoordinator.swift in Sources */,
 				B443F39221855F8C0021BCAE /* Product.swift in Sources */,
@@ -464,6 +486,8 @@
 				B4D8579C214DF91000EDDA73 /* Coordinator.swift in Sources */,
 				B42535A72197CCD300AF5350 /* LoginViewModel.swift in Sources */,
 				B4D8578C214DCFBA00EDDA73 /* CannaRateItUITests.swift in Sources */,
+				B4E3DF8321A796B8004214C6 /* AddCommentsCoordinator.swift in Sources */,
+				B4E3DF7B21A77E68004214C6 /* AddCommentViewController.swift in Sources */,
 				B443F38B21840FE50021BCAE /* Environment.swift in Sources */,
 				B494125621888BBF008A37BA /* ProductCoordinator.swift in Sources */,
 				B443F39321855F8C0021BCAE /* Product.swift in Sources */,

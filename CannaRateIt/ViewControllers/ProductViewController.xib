@@ -12,6 +12,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ProductViewController" customModule="CannaRateIt" customModuleProvider="target">
             <connections>
+                <outlet property="addCommentButton" destination="ar2-oJ-492" id="07P-gV-50N"/>
                 <outlet property="brandName" destination="XLN-9j-uTf" id="TqD-MK-87R"/>
                 <outlet property="category" destination="2mT-56-ecs" id="4Ry-7v-Eae"/>
                 <outlet property="flavor" destination="MGd-0L-fXi" id="Efz-Zv-nzn"/>
@@ -68,6 +69,14 @@
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ar2-oJ-492">
+                    <rect key="frame" x="139" y="395" width="99" height="30"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <state key="normal" title="Add Comment"/>
+                    <connections>
+                        <action selector="addCommentButtonTapped:" destination="-1" eventType="touchUpInside" id="GYj-j4-fKo"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" red="1" green="0.75942474719999997" blue="0.25755137150000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
