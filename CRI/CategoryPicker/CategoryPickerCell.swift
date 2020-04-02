@@ -9,20 +9,22 @@
 import SwiftUI
 
 struct CategoryPickerCell: View {
-	
-	@State var isPressed: Bool = false
+		
+    @Binding var selectedCategory: String
 	
 	private let iconName: String
 	private let categoryName: String
-		
-	init(iconName: String, categoryName: String) {
+	
+			
+	init(iconName: String, categoryName: String, selectedCategory: Binding<String>) {
 		self.iconName = iconName
 		self.categoryName = categoryName
+		self._selectedCategory = selectedCategory
 	}
 	
     var body: some View {
 		VStack(alignment: .center) {
-			if self.isPressed {
+			if self._selectedCategory.wrappedValue == self.categoryName {
 				Image(self.iconName).renderingMode(.template).resizable().frame(width: 65.0, height: 65.0, alignment: .center).foregroundColor(Color("Blue")).overlay(RoundedRectangle(cornerRadius: 10).stroke(Color("Blue"), lineWidth: 4))
 				Text(self.categoryName).foregroundColor(Color("Blue"))
 			} else {
@@ -30,13 +32,13 @@ struct CategoryPickerCell: View {
 				Text(self.categoryName)
 			}
 		}.onTapGesture {
-			self.isPressed = !self.isPressed
+			self.selectedCategory = self.categoryName
 		}
-    }
+	}
 }
 
-struct CategoryPickerCell_Previews: PreviewProvider {
-    static var previews: some View {
-		CategoryPickerCell(iconName: "pet-category", categoryName: "pet")
-    }
-}
+//struct CategoryPickerCell_Previews: PreviewProvider {
+//    static var previews: some View {
+//		CategoryPickerCell(iconName: "pet-category", categoryName: "pet")
+//    }
+//}

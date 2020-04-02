@@ -9,10 +9,10 @@
 import SwiftUI
 
 struct ExploreView: View {
-		
+			
     var body: some View {
 		VStack(alignment: .leading, spacing: 0.0) {
-			CastegoryPickerView()
+			CategoryPickerView()
 			Spacer()
 		}
     }

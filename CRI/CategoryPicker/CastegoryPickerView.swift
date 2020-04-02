@@ -8,7 +8,10 @@
 
 import SwiftUI
 
-struct CastegoryPickerView: View {
+struct CategoryPickerView: View {
+	
+    @ObservedObject var viewModel: CastegoryPickerViewModel
+	
     var body: some View {
 		HStack(alignment: .center, spacing: 20.0) {
 			CategoryPickerCell(iconName: "edible-category", categoryName: "edible")
@@ -20,6 +23,6 @@ struct CastegoryPickerView: View {
 
 struct CastegoryPickerView_Previews: PreviewProvider {
     static var previews: some View {
-        CastegoryPickerView()
+        CategoryPickerView()
     }
 }
