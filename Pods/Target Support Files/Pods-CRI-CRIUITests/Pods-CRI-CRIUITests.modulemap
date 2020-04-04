@@ -1,0 +1,6 @@
+framework module Pods_CRI_CRIUITests {
+  umbrella header "Pods-CRI-CRIUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}
