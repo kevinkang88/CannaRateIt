@@ -9,11 +9,20 @@
 import SwiftUI
 
 struct ExploreView: View {
+	
+	@State var selectedFruit: String = "edible"
 			
     var body: some View {
 		VStack(alignment: .leading, spacing: 0.0) {
-			CategoryPickerView()
-			Spacer()
+			
+			CategoryPickerView(selectedCategory: $selectedFruit)
+			
+			List {
+				Section(header: Text("Trending \(selectedFruit)")) {
+					Text("row1")
+					Text("row2")
+				}
+			}
 		}
     }
 }
