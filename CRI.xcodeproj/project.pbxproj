@@ -3,11 +3,13 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		7CD2AF8CE14D0E4845DF62DB /* Pods_CRI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0748DFC8E204F51526602B82 /* Pods_CRI.framework */; };
+		B44136D6243906CD00F3C1C4 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B44136D5243906CD00F3C1C4 /* GoogleService-Info.plist */; };
+		B44136D8243A2C9D00F3C1C4 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = B44136D7243A2C9D00F3C1C4 /* Product.swift */; };
 		B446647F242FECBA003F79CC /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B446647E242FECBA003F79CC /* Colors.xcassets */; };
 		B4466481242FF664003F79CC /* CategoryPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4466480242FF664003F79CC /* CategoryPickerView.swift */; };
 		B47B07F524225A200046ACF2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B47B07F424225A200046ACF2 /* AppDelegate.swift */; };
@@ -47,6 +49,8 @@
 		295353C241D206EE2E7E0A21 /* Pods-CRI.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CRI.debug.xcconfig"; path = "Target Support Files/Pods-CRI/Pods-CRI.debug.xcconfig"; sourceTree = "<group>"; };
 		50D317EFD27A8BF7AABE682E /* Pods_CRITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CRITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6FAE57C5A1AB001D277D3BC5 /* Pods_CRI_CRIUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CRI_CRIUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B44136D5243906CD00F3C1C4 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
+		B44136D7243A2C9D00F3C1C4 /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
 		B446647E242FECBA003F79CC /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		B4466480242FF664003F79CC /* CategoryPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryPickerView.swift; sourceTree = "<group>"; };
 		B47B07F124225A200046ACF2 /* CRI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CRI.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -117,7 +121,6 @@
 				F662FBBC5F8EA91DA6588ACC /* Pods-CRITests.debug.xcconfig */,
 				032F65386D46CEC3546ABEB5 /* Pods-CRITests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -146,6 +149,7 @@
 		B47B07F324225A200046ACF2 /* CRI */ = {
 			isa = PBXGroup;
 			children = (
+				B44136D5243906CD00F3C1C4 /* GoogleService-Info.plist */,
 				B47B07F424225A200046ACF2 /* AppDelegate.swift */,
 				B490326A2426602700A09CB3 /* CategoryPicker */,
 				B47B07F624225A200046ACF2 /* SceneDelegate.swift */,
@@ -155,6 +159,7 @@
 				B47B07FF24225A210046ACF2 /* LaunchScreen.storyboard */,
 				B47B080224225A210046ACF2 /* Info.plist */,
 				B47B07FC24225A210046ACF2 /* Preview Content */,
+				B44136D7243A2C9D00F3C1C4 /* Product.swift */,
 			);
 			path = CRI;
 			sourceTree = "<group>";
@@ -305,6 +310,7 @@
 			files = (
 				B47B080124225A210046ACF2 /* LaunchScreen.storyboard in Resources */,
 				B446647F242FECBA003F79CC /* Colors.xcassets in Resources */,
+				B44136D6243906CD00F3C1C4 /* GoogleService-Info.plist in Resources */,
 				B47B07FE24225A210046ACF2 /* Preview Assets.xcassets in Resources */,
 				B47B07FB24225A210046ACF2 /* Assets.xcassets in Resources */,
 			);
@@ -439,6 +445,7 @@
 				B47B07F924225A200046ACF2 /* ContentView.swift in Sources */,
 				B49032692426602300A09CB3 /* CategoryPickerCell.swift in Sources */,
 				B4466481242FF664003F79CC /* CategoryPickerView.swift in Sources */,
+				B44136D8243A2C9D00F3C1C4 /* Product.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
