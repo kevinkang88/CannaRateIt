@@ -15,21 +15,23 @@ struct ExploreView: View {
     @ObservedObject var selectedCategoryStore = SelectedCategoryStore()
 				
     var body: some View {
-		VStack(alignment: .leading, spacing: 0.0) {
-			
-			CategoryPickerView(selectedCategory: $selectedCategoryStore.selectedCategory)
-			
-			List {
-				ForEach(0..<self.selectedCategoryStore.sections.count, id: \.self) { section in
-					Section(header: Text("\(self.selectedCategoryStore.sections[section])")) {
-						ForEach(self.selectedCategoryStore.rows(section: section), id: \.self) { product in
-							Text("row1")
+		NavigationView {
+			VStack(alignment: .leading, spacing: 0.0) {
+				
+				CategoryPickerView(selectedCategory: $selectedCategoryStore.selectedCategory).padding()
+				
+				List {
+					ForEach(0..<self.selectedCategoryStore.sections.count, id: \.self) { section in
+						Section(header: Text("\(self.selectedCategoryStore.sections[section])")) {
+							ForEach(self.selectedCategoryStore.rows(section: section), id: \.self) { product in
+								Text("row1")
+							}
 						}
 					}
 				}
-			}
-		}.onAppear {
-			self.selectedCategoryStore.selectedCategory = "edible"
+			}.onAppear {
+				self.selectedCategoryStore.selectedCategory = "edible"
+			}.navigationBarTitle("Explore", displayMode: .automatic)
 		}
     }
 }
