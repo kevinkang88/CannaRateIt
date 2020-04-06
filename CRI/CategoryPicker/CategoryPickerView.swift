@@ -11,7 +11,8 @@ import SwiftUI
 struct CategoryPickerView: View {
 	
 	let categories: [Category] = [Category(iconName: "edible-category", categoryName: "edible"),
-								  Category(iconName: "pet-category", categoryName: "pet")]
+								  Category(iconName: "pet-category", categoryName: "pet"),
+								  Category(iconName: "drop-category", categoryName: "drop")]
 	
     @Binding var selectedCategory: String
 	
