@@ -22,7 +22,15 @@ struct ExploreView: View {
 				
 				List {
 					ForEach(0..<self.selectedCategoryStore.sections.count, id: \.self) { section in
-						Section(header: Text("\(self.selectedCategoryStore.sections[section])")) {
+						Section(header: HStack {
+							Text("\(self.selectedCategoryStore.sections[section])".capitalized)
+								.font(.headline)
+								.foregroundColor(.black)
+								.padding()
+
+								Spacer()
+							}.background(Color.white).listRowInsets(EdgeInsets(top: 0,leading: 0,bottom: 0,trailing: 0))
+							) {
 							ForEach(self.selectedCategoryStore.rows(section: section), id: \.self) { product in
 								Text("row1")
 							}
