@@ -36,6 +36,7 @@ struct ExploreView: View {
 
 // make an object that listens for change of selectedCategory
 class SelectedCategoryStore: ObservableObject {
+	
 	@Published var selectedCategory: String = "edible" {
 		didSet {
 			self.fetchProductsFromFirebase(selectedCategory: selectedCategory)
@@ -43,6 +44,7 @@ class SelectedCategoryStore: ObservableObject {
 	}
 	
 	@Published var loadedProducts: [String: [Product]] = [:]
+	
     var sections: [String] { loadedProducts.keys.map { $0 } }
     func rows(section: Int) -> [Product] { loadedProducts[sections[section]]! }
 
@@ -86,9 +88,5 @@ class SelectedCategoryStore: ObservableObject {
 			self.loadedProducts = result
 		}
 		
-		
 	}
-	
-	// when selectedCategory changes call a function here
-	
 }
