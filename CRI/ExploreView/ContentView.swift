@@ -13,37 +13,53 @@ import Firebase
 struct ExploreView: View {
 	
     @ObservedObject var selectedCategoryStore = SelectedCategoryStore()
+	
+	init() {
+		// To remove only extra separators below the list:
+		UITableView.appearance().tableFooterView = UIView()
+
+		// To remove all separators including the actual ones:
+		UITableView.appearance().separatorStyle = .none
+	}
 				
     var body: some View {
 		NavigationView {
-			VStack(alignment: .leading, spacing: 0.0) {
-				
-				CategoryPickerView(selectedCategory: $selectedCategoryStore.selectedCategory).padding()
-				
-				List {
-					ForEach(0..<self.selectedCategoryStore.sections.count, id: \.self) { section in
-						Section(header: HStack {
-							Text("\(self.selectedCategoryStore.sections[section])".capitalized)
-								.font(Font.system(size: 22.0, weight: .bold, design: .default))
-								.foregroundColor(.black)
-								.padding()
-								Spacer()
-							}.background(Color.white).listRowInsets(EdgeInsets(top: 0,leading: 0,bottom: 0,trailing: 0))
-						) {
-							ScrollView(.horizontal, showsIndicators: false) {
-								HStack(alignment: .center, spacing: 25.0) {
-									ForEach(self.selectedCategoryStore.rows(section: section), id: \.self) { product in
-										ProductCardCell(product: product).frame(width: 160, height: 240, alignment: .center)
-									}
-								}.frame(height: 240)
-							}
+			ZStack(alignment: .bottom) {
 
+				VStack(alignment: .leading, spacing: 0.0) {
+					
+					CategoryPickerView(selectedCategory: $selectedCategoryStore.selectedCategory).padding()
+					
+					List {
+						ForEach(0..<self.selectedCategoryStore.sections.count, id: \.self) { section in
+							Section(header: HStack {
+								Text("\(self.selectedCategoryStore.sections[section])".capitalized)
+									.font(Font.system(size: 22.0, weight: .bold, design: .default))
+									.foregroundColor(.black)
+									.padding()
+									Spacer()
+								}.background(Color.white).listRowInsets(EdgeInsets(top: 0,leading: 0,bottom: 0,trailing: 0))
+							) {
+								ScrollView(.horizontal, showsIndicators: false) {
+									HStack(alignment: .center, spacing: 25.0) {
+										ForEach(self.selectedCategoryStore.rows(section: section), id: \.self) { product in
+											ProductCardCell(product: product).frame(width: 160, height: 240, alignment: .center)
+										}
+									}.frame(height: 240)
+								}
+							}
 						}
 					}
 				}
+				Button(action: {
+					print("yellow")
+				}) {
+					Image("plus").resizable().renderingMode(.template).foregroundColor(Color("Blue"))
+				}.frame(width: 80, height: 80, alignment: .center)
 			}.onAppear {
 				self.selectedCategoryStore.selectedCategory = "edible"
 			}.navigationBarTitle("Explore", displayMode: .automatic)
+			
 		}
     }
 }
