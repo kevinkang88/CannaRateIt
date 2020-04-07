@@ -14,6 +14,8 @@ struct ExploreView: View {
 	
     @ObservedObject var selectedCategoryStore = SelectedCategoryStore()
 	
+	@State var showAddProductSheet = false
+	
 	init() {
 		// To remove only extra separators below the list:
 		UITableView.appearance().tableFooterView = UIView()
@@ -52,16 +54,17 @@ struct ExploreView: View {
 					}
 				}
 				Button(action: {
-					print("yellow")
+					self.showAddProductSheet.toggle()
 				}) {
 					Image("plus").resizable().renderingMode(.template).foregroundColor(Color("Blue"))
 				}.frame(width: 80, height: 80, alignment: .center)
 			}.onAppear {
 				self.selectedCategoryStore.selectedCategory = "edible"
 			}.navigationBarTitle("Explore", displayMode: .automatic)
-			
+		}.sheet(isPresented: $showAddProductSheet) {
+			AddProductView()
 		}
-    }
+	}
 }
 
 // make an object that listens for change of selectedCategory
