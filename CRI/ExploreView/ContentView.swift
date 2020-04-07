@@ -27,13 +27,17 @@ struct ExploreView: View {
 								.font(.headline)
 								.foregroundColor(.black)
 								.padding()
-
 								Spacer()
 							}.background(Color.white).listRowInsets(EdgeInsets(top: 0,leading: 0,bottom: 0,trailing: 0))
-							) {
-							ForEach(self.selectedCategoryStore.rows(section: section), id: \.self) { product in
-								Text("row1")
+						) {
+							ScrollView(.horizontal, showsIndicators: false) {
+								HStack(alignment: .center, spacing: 25.0) {
+									ForEach(self.selectedCategoryStore.rows(section: section), id: \.self) { product in
+										ProductCardCell(product: product).frame(width: 160, height: 240, alignment: .center)
+									}
+								}.frame(height: 240)
 							}
+
 						}
 					}
 				}
