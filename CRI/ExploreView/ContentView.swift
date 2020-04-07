@@ -24,7 +24,7 @@ struct ExploreView: View {
 					ForEach(0..<self.selectedCategoryStore.sections.count, id: \.self) { section in
 						Section(header: HStack {
 							Text("\(self.selectedCategoryStore.sections[section])".capitalized)
-								.font(.headline)
+								.font(Font.system(size: 22.0, weight: .bold, design: .default))
 								.foregroundColor(.black)
 								.padding()
 								Spacer()
