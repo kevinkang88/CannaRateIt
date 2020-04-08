@@ -25,6 +25,7 @@
 		B47B080124225A210046ACF2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B47B07FF24225A210046ACF2 /* LaunchScreen.storyboard */; };
 		B47B080C24225A210046ACF2 /* CRITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B47B080B24225A210046ACF2 /* CRITests.swift */; };
 		B47B081724225A210046ACF2 /* CRIUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B47B081624225A210046ACF2 /* CRIUITests.swift */; };
+		B48961C1243DE31500DA988F /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = B48961C0243DE31500DA988F /* ImagePicker.swift */; };
 		B49032692426602300A09CB3 /* CategoryPickerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B49032682426602300A09CB3 /* CategoryPickerCell.swift */; };
 		C5D88415C22B89CA5FA7FE61 /* Pods_CRITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50D317EFD27A8BF7AABE682E /* Pods_CRITests.framework */; };
 		DF7DB357FC603DAF37EF85C8 /* Pods_CRI_CRIUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6FAE57C5A1AB001D277D3BC5 /* Pods_CRI_CRIUITests.framework */; };
@@ -77,6 +78,7 @@
 		B47B081224225A210046ACF2 /* CRIUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CRIUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B47B081624225A210046ACF2 /* CRIUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CRIUITests.swift; sourceTree = "<group>"; };
 		B47B081824225A210046ACF2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B48961C0243DE31500DA988F /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		B49032682426602300A09CB3 /* CategoryPickerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryPickerCell.swift; sourceTree = "<group>"; };
 		C493C79EC9ACEABE26F758A0 /* Pods-CRI-CRIUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CRI-CRIUITests.debug.xcconfig"; path = "Target Support Files/Pods-CRI-CRIUITests/Pods-CRI-CRIUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		E216E0F496FEAA00388A40C0 /* Pods-CRI.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CRI.release.xcconfig"; path = "Target Support Files/Pods-CRI/Pods-CRI.release.xcconfig"; sourceTree = "<group>"; };
@@ -138,6 +140,7 @@
 			isa = PBXGroup;
 			children = (
 				B43CAC8F243CF296000B84FA /* AddProductView.swift */,
+				B48961C0243DE31500DA988F /* ImagePicker.swift */,
 			);
 			path = "Add Product";
 			sourceTree = "<group>";
@@ -480,6 +483,7 @@
 				B47B07F924225A200046ACF2 /* ContentView.swift in Sources */,
 				B43CAC8B243BE4C7000B84FA /* ImageLoader.swift in Sources */,
 				B49032692426602300A09CB3 /* CategoryPickerCell.swift in Sources */,
+				B48961C1243DE31500DA988F /* ImagePicker.swift in Sources */,
 				B4466481242FF664003F79CC /* CategoryPickerView.swift in Sources */,
 				B44136D8243A2C9D00F3C1C4 /* Product.swift in Sources */,
 			);
