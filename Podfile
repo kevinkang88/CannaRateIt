@@ -10,6 +10,7 @@ target 'CRI' do
   pod 'Firebase/Analytics'
   pod 'Firebase/Auth'
   pod 'Firebase/Firestore'
+	pod 'Firebase/Storage'	
 
   target 'CRITests' do
     inherit! :search_paths

@@ -15,7 +15,6 @@ struct Product: Hashable, Codable, Identifiable {
 	var brand: String
 	var category: Category
 	var mainIngredient: MainIngredient
-	var primaryImage: String
 	var isTrending: Bool
 	var averageRating: Float
 	var lastUpdated: Date?
