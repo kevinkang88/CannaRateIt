@@ -7,13 +7,16 @@
 //
 
 import SwiftUI
+	
+import Firebase
+import FirebaseStorage
+
 
 struct AddProductView: View {
 	
 	@ObservedObject var addProductFormDataStore = AddProductFormDataStore()
 	
 	@State var showImagePicker = false
-	@State private var image : Image? = nil
 	
     var body: some View {
 		NavigationView {
@@ -22,10 +25,10 @@ struct AddProductView: View {
 				Button(action: {
 					self.showImagePicker = true
 				}) {
-					if self.image == nil {
+					if self.addProductFormDataStore.image == nil {
 						Text("+ Image")
-						.fontWeight(.regular)
-						.font(.headline)
+						.fontWeight(.semibold)
+						.font(.subheadline)
 						.foregroundColor(Color.gray)
 						.padding()
 						.overlay(
@@ -72,21 +75,30 @@ struct AddProductView: View {
 						}
 					}).padding(.top)
 					
-					Button(action: {
-						print("submittingto the firebase")
-					}) {
-						Text("create")
-					}.padding(.top)
-					
-					Spacer()
 				}
 				
+				Button(action: {
+					self.addProductFormDataStore.addProductToFirebase()
+				}) {
+					Text("Create")
+					.fontWeight(.semibold)
+					.font(.subheadline)
+					.padding(.horizontal, 60.0)
+					.foregroundColor(Color("Blue"))
+					.padding()
+					.overlay(
+						RoundedRectangle(cornerRadius: 20)
+							.stroke(Color("Blue"), lineWidth: 3))
+				}.padding(.top)
+				
+				Spacer()
+
 				
 			}.padding(.horizontal)
 			
 			.navigationBarTitle("Add Product")
 		}.sheet(isPresented: self.$showImagePicker) {
-			PhotoCaptureView(showImagePicker: self.$showImagePicker, image: self.$image)
+			PhotoCaptureView(showImagePicker: self.$showImagePicker, image: self.$addProductFormDataStore.image)
 		}
         
     }
@@ -103,8 +115,43 @@ class AddProductFormDataStore: ObservableObject {
 	@Published var brandName: String = ""
 	@Published var selectedCategory: String = ""
 	@Published var rating: Float = 0.0
+	@Published var image: UIImage? = nil
 	
 	func addProductToFirebase() {
-		print("adding")
+		
+		let callbackToken = UUID().uuidString
+		
+		let data: [String: Any] =  ["averageRating": self.rating,
+		   "brand": self.brandName,
+		   "category": self.selectedCategory,
+		   "isTrending": false,
+		   "lastUpdated": Date(),
+		   "mainIngredient": "cbd",
+		   "name": productName,
+		   "token": callbackToken]
+		
+		Firestore.firestore().collection("products").addDocument(data: data) { error in
+			let query = Firestore.firestore().collection("products").whereField("token", isEqualTo: callbackToken)
+			query.getDocuments { (snapshot, error) in
+				if error != nil {
+					print((error?.localizedDescription)!)
+					return
+				}
+				
+				if let documentID = snapshot?.documents.first?.documentID {
+					let imageFileName = "\(documentID).jpeg"
+					let storageRef = Storage.storage().reference().child("products/\(imageFileName)")
+					if let imageData = self.image!.jpegData(compressionQuality: 0.5) {
+						storageRef.putData(imageData, metadata: nil) { (metaData, error) in
+							print(metaData)
+							print(error)
+						}
+					}
+				}
+				
+
+			}
+		}
 	}
+	
 }

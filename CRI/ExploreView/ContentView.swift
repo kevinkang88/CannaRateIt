@@ -10,6 +10,8 @@ import SwiftUI
 
 import Firebase
 
+import FirebaseStorage
+
 struct ExploreView: View {
 	
     @ObservedObject var selectedCategoryStore = SelectedCategoryStore()
@@ -96,12 +98,11 @@ class SelectedCategoryStore: ObservableObject {
                 let brand = doc.document.data()["brand"] as! String
 				let category = Product.Category(rawValue: doc.document.data()["category"] as! String) as! Product.Category
 				let mainIngredient = Product.MainIngredient(rawValue: doc.document.data()["mainIngredient"] as! String) as! Product.MainIngredient
-				let primaryImage = doc.document.data()["primaryImage"] as! String
 				let isTrending = doc.document.data()["isTrending"] as! Bool
 				let averageRating = doc.document.data()["averageRating"] as! Float
 				let updatedDate = (doc.document.data()["lastUpdated"] as! Timestamp).dateValue() as! Date
 				
-				products.append(Product(id: id, name: name, brand: brand, category: category, mainIngredient: mainIngredient, primaryImage: primaryImage, isTrending: isTrending, averageRating: averageRating, lastUpdated: updatedDate))
+				products.append(Product(id: id, name: name, brand: brand, category: category, mainIngredient: mainIngredient, isTrending: isTrending, averageRating: averageRating, lastUpdated: updatedDate))
 			}
 			
 			// ["trending: [Product], "most reviewed": [Product], "latest": [Product]]

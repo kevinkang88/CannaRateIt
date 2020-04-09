@@ -11,6 +11,8 @@ import SwiftUI
 import UIKit
 import Combine
 
+import FirebaseStorage
+
 class ImageLoader: ObservableObject {
     var didChange = PassthroughSubject<Data, Never>()
     var data = Data() {
@@ -19,14 +21,19 @@ class ImageLoader: ObservableObject {
         }
     }
 
-    init(urlString:String) {
-        guard let url = URL(string: urlString) else { return }
-        let task = URLSession.shared.dataTask(with: url) { data, response, error in
-            guard let data = data else { return }
-            DispatchQueue.main.async {
-                self.data = data
-            }
-        }
-        task.resume()
+    init(ref:String) {
+		
+		let storageRef = Storage.storage().reference().child("/\(ref)")
+		storageRef.getData(maxSize: 1 * 700 * 700) { data, error in
+			if let error = error {
+				print("erroed out \(error)")
+			} else {
+				guard let data = data else { return }
+				DispatchQueue.main.async {
+					self.data = data
+				}
+			}
+			
+		}
     }
 }

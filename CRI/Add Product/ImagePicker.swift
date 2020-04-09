@@ -12,7 +12,7 @@ import SwiftUI
 struct ImagePicker : UIViewControllerRepresentable {
     
     @Binding var isShown    : Bool
-    @Binding var image      : Image?
+    @Binding var image      : UIImage?
     
     func updateUIViewController(_ uiViewController: UIImagePickerController, context: UIViewControllerRepresentableContext<ImagePicker>) {
         
@@ -32,17 +32,16 @@ struct ImagePicker : UIViewControllerRepresentable {
 class ImagePickerCoordinator : NSObject, UINavigationControllerDelegate, UIImagePickerControllerDelegate{
     
     @Binding var isShown    : Bool
-    @Binding var image      : Image?
+    @Binding var image      : UIImage?
     
-    init(isShown : Binding<Bool>, image: Binding<Image?>) {
+    init(isShown : Binding<Bool>, image: Binding<UIImage?>) {
         _isShown = isShown
         _image   = image
     }
     
     //Selected Image
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        let uiImage = info[UIImagePickerController.InfoKey.originalImage] as! UIImage
-        image = Image(uiImage: uiImage)
+        image = info[UIImagePickerController.InfoKey.originalImage] as! UIImage
         isShown = false
     }
     
@@ -55,15 +54,15 @@ class ImagePickerCoordinator : NSObject, UINavigationControllerDelegate, UIImage
 struct PhotoCaptureView: View {
     
     @Binding var showImagePicker    : Bool
-    @Binding var image              : Image?
+    @Binding var image              : UIImage?
     
     var body: some View {
         ImagePicker(isShown: $showImagePicker, image: $image)
     }
 }
 
-struct PhotoCaptureView_Previews: PreviewProvider {
-    static var previews: some View {
-        PhotoCaptureView(showImagePicker: .constant(false), image: .constant(Image("")))
-    }
-}
+//struct PhotoCaptureView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        PhotoCaptureView(showImagePicker: .constant(false), image: .constant(Image("")))
+//    }
+//}

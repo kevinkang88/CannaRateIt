@@ -20,7 +20,7 @@ struct ProductCardCell: View {
 		VStack(alignment: .leading) {
 			VStack(alignment: .center) {
 				ZStack(alignment: .topLeading) {
-					ImageView(withURL: self.product.primaryImage ?? "").frame(width: 160, height: 213, alignment: .center).clipped().cornerRadius(20).colorMultiply(.gray)
+					ImageView(withURL: "products/\(product.id ?? "").jpeg").frame(width: 160, height: 213, alignment: .center).clipped().cornerRadius(20).colorMultiply(.gray)
 					VStack(alignment: .leading, spacing: 10.0) {
 						Text(self.product.name).font(Font.system(size: 16.0, weight: .bold, design: .monospaced)).lineLimit(3).padding(.leading).padding(.top).foregroundColor(.white).opacity(1.0)
 						Text("by \(self.product.brand)").font(Font.system(size: 12.0, weight: .medium, design: .monospaced)).lineLimit(2).padding(.horizontal).foregroundColor(.white).opacity(0.8)
