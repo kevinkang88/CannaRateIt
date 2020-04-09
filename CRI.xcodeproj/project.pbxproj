@@ -26,6 +26,20 @@
 		B47B080C24225A210046ACF2 /* CRITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B47B080B24225A210046ACF2 /* CRITests.swift */; };
 		B47B081724225A210046ACF2 /* CRIUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B47B081624225A210046ACF2 /* CRIUITests.swift */; };
 		B48961C1243DE31500DA988F /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = B48961C0243DE31500DA988F /* ImagePicker.swift */; };
+		B48961CD243FD34500DA988F /* icons8-dispenser.pdf in Resources */ = {isa = PBXBuildFile; fileRef = B48961C4243FD34500DA988F /* icons8-dispenser.pdf */; };
+		B48961CE243FD34500DA988F /* icons8-doughnut.pdf in Resources */ = {isa = PBXBuildFile; fileRef = B48961C5243FD34500DA988F /* icons8-doughnut.pdf */; };
+		B48961CF243FD34500DA988F /* icons8-iqos.pdf in Resources */ = {isa = PBXBuildFile; fileRef = B48961C6243FD34500DA988F /* icons8-iqos.pdf */; };
+		B48961D0243FD34500DA988F /* icons8-color-dropper.pdf in Resources */ = {isa = PBXBuildFile; fileRef = B48961C7243FD34500DA988F /* icons8-color-dropper.pdf */; };
+		B48961D1243FD34500DA988F /* icons8-cat-pot.pdf in Resources */ = {isa = PBXBuildFile; fileRef = B48961C8243FD34500DA988F /* icons8-cat-pot.pdf */; };
+		B48961D2243FD34500DA988F /* icons8-plus.pdf in Resources */ = {isa = PBXBuildFile; fileRef = B48961C9243FD34500DA988F /* icons8-plus.pdf */; };
+		B48961D3243FD34500DA988F /* icons8-dose.pdf in Resources */ = {isa = PBXBuildFile; fileRef = B48961CA243FD34500DA988F /* icons8-dose.pdf */; };
+		B48961D4243FD34500DA988F /* icons8-star-96.png in Resources */ = {isa = PBXBuildFile; fileRef = B48961CB243FD34500DA988F /* icons8-star-96.png */; };
+		B48961DB243FD37F00DA988F /* AirbnbCereal-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B48961D5243FD37F00DA988F /* AirbnbCereal-Bold.ttf */; };
+		B48961DC243FD37F00DA988F /* AirbnbCereal-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B48961D6243FD37F00DA988F /* AirbnbCereal-Black.ttf */; };
+		B48961DD243FD37F00DA988F /* AirbnbCereal-Book.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B48961D7243FD37F00DA988F /* AirbnbCereal-Book.ttf */; };
+		B48961DE243FD37F00DA988F /* AirbnbCereal-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B48961D8243FD37F00DA988F /* AirbnbCereal-Medium.ttf */; };
+		B48961DF243FD37F00DA988F /* AirbnbCereal-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B48961D9243FD37F00DA988F /* AirbnbCereal-ExtraBold.ttf */; };
+		B48961E0243FD37F00DA988F /* AirbnbCereal-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B48961DA243FD37F00DA988F /* AirbnbCereal-Light.ttf */; };
 		B49032692426602300A09CB3 /* CategoryPickerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B49032682426602300A09CB3 /* CategoryPickerCell.swift */; };
 		C5D88415C22B89CA5FA7FE61 /* Pods_CRITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50D317EFD27A8BF7AABE682E /* Pods_CRITests.framework */; };
 		DF7DB357FC603DAF37EF85C8 /* Pods_CRI_CRIUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6FAE57C5A1AB001D277D3BC5 /* Pods_CRI_CRIUITests.framework */; };
@@ -79,6 +93,20 @@
 		B47B081624225A210046ACF2 /* CRIUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CRIUITests.swift; sourceTree = "<group>"; };
 		B47B081824225A210046ACF2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B48961C0243DE31500DA988F /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
+		B48961C4243FD34500DA988F /* icons8-dispenser.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "icons8-dispenser.pdf"; sourceTree = "<group>"; };
+		B48961C5243FD34500DA988F /* icons8-doughnut.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "icons8-doughnut.pdf"; sourceTree = "<group>"; };
+		B48961C6243FD34500DA988F /* icons8-iqos.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "icons8-iqos.pdf"; sourceTree = "<group>"; };
+		B48961C7243FD34500DA988F /* icons8-color-dropper.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "icons8-color-dropper.pdf"; sourceTree = "<group>"; };
+		B48961C8243FD34500DA988F /* icons8-cat-pot.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "icons8-cat-pot.pdf"; sourceTree = "<group>"; };
+		B48961C9243FD34500DA988F /* icons8-plus.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "icons8-plus.pdf"; sourceTree = "<group>"; };
+		B48961CA243FD34500DA988F /* icons8-dose.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "icons8-dose.pdf"; sourceTree = "<group>"; };
+		B48961CB243FD34500DA988F /* icons8-star-96.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icons8-star-96.png"; sourceTree = "<group>"; };
+		B48961D5243FD37F00DA988F /* AirbnbCereal-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "AirbnbCereal-Bold.ttf"; sourceTree = "<group>"; };
+		B48961D6243FD37F00DA988F /* AirbnbCereal-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "AirbnbCereal-Black.ttf"; sourceTree = "<group>"; };
+		B48961D7243FD37F00DA988F /* AirbnbCereal-Book.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "AirbnbCereal-Book.ttf"; sourceTree = "<group>"; };
+		B48961D8243FD37F00DA988F /* AirbnbCereal-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "AirbnbCereal-Medium.ttf"; sourceTree = "<group>"; };
+		B48961D9243FD37F00DA988F /* AirbnbCereal-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "AirbnbCereal-ExtraBold.ttf"; sourceTree = "<group>"; };
+		B48961DA243FD37F00DA988F /* AirbnbCereal-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "AirbnbCereal-Light.ttf"; sourceTree = "<group>"; };
 		B49032682426602300A09CB3 /* CategoryPickerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryPickerCell.swift; sourceTree = "<group>"; };
 		C493C79EC9ACEABE26F758A0 /* Pods-CRI-CRIUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CRI-CRIUITests.debug.xcconfig"; path = "Target Support Files/Pods-CRI-CRIUITests/Pods-CRI-CRIUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		E216E0F496FEAA00388A40C0 /* Pods-CRI.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CRI.release.xcconfig"; path = "Target Support Files/Pods-CRI/Pods-CRI.release.xcconfig"; sourceTree = "<group>"; };
@@ -194,6 +222,7 @@
 				B44136D7243A2C9D00F3C1C4 /* Product.swift */,
 				B43CAC88243BE4AD000B84FA /* ImageView.swift */,
 				B43CAC8A243BE4C7000B84FA /* ImageLoader.swift */,
+				B48961C2243FD34500DA988F /* Resources */,
 			);
 			path = CRI;
 			sourceTree = "<group>";
@@ -222,6 +251,43 @@
 				B47B081824225A210046ACF2 /* Info.plist */,
 			);
 			path = CRIUITests;
+			sourceTree = "<group>";
+		};
+		B48961C2243FD34500DA988F /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				B48961C3243FD34500DA988F /* icons */,
+				B48961CC243FD34500DA988F /* fonts */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		B48961C3243FD34500DA988F /* icons */ = {
+			isa = PBXGroup;
+			children = (
+				B48961C4243FD34500DA988F /* icons8-dispenser.pdf */,
+				B48961C5243FD34500DA988F /* icons8-doughnut.pdf */,
+				B48961C6243FD34500DA988F /* icons8-iqos.pdf */,
+				B48961C7243FD34500DA988F /* icons8-color-dropper.pdf */,
+				B48961C8243FD34500DA988F /* icons8-cat-pot.pdf */,
+				B48961C9243FD34500DA988F /* icons8-plus.pdf */,
+				B48961CA243FD34500DA988F /* icons8-dose.pdf */,
+				B48961CB243FD34500DA988F /* icons8-star-96.png */,
+			);
+			path = icons;
+			sourceTree = "<group>";
+		};
+		B48961CC243FD34500DA988F /* fonts */ = {
+			isa = PBXGroup;
+			children = (
+				B48961D6243FD37F00DA988F /* AirbnbCereal-Black.ttf */,
+				B48961D5243FD37F00DA988F /* AirbnbCereal-Bold.ttf */,
+				B48961D7243FD37F00DA988F /* AirbnbCereal-Book.ttf */,
+				B48961D9243FD37F00DA988F /* AirbnbCereal-ExtraBold.ttf */,
+				B48961DA243FD37F00DA988F /* AirbnbCereal-Light.ttf */,
+				B48961D8243FD37F00DA988F /* AirbnbCereal-Medium.ttf */,
+			);
+			path = fonts;
 			sourceTree = "<group>";
 		};
 		B490326A2426602700A09CB3 /* CategoryPicker */ = {
@@ -345,8 +411,22 @@
 				B47B080124225A210046ACF2 /* LaunchScreen.storyboard in Resources */,
 				B446647F242FECBA003F79CC /* Colors.xcassets in Resources */,
 				B44136D6243906CD00F3C1C4 /* GoogleService-Info.plist in Resources */,
+				B48961DD243FD37F00DA988F /* AirbnbCereal-Book.ttf in Resources */,
 				B47B07FE24225A210046ACF2 /* Preview Assets.xcassets in Resources */,
+				B48961CF243FD34500DA988F /* icons8-iqos.pdf in Resources */,
+				B48961DC243FD37F00DA988F /* AirbnbCereal-Black.ttf in Resources */,
+				B48961CE243FD34500DA988F /* icons8-doughnut.pdf in Resources */,
+				B48961CD243FD34500DA988F /* icons8-dispenser.pdf in Resources */,
+				B48961D4243FD34500DA988F /* icons8-star-96.png in Resources */,
+				B48961E0243FD37F00DA988F /* AirbnbCereal-Light.ttf in Resources */,
+				B48961DE243FD37F00DA988F /* AirbnbCereal-Medium.ttf in Resources */,
+				B48961D2243FD34500DA988F /* icons8-plus.pdf in Resources */,
+				B48961D0243FD34500DA988F /* icons8-color-dropper.pdf in Resources */,
 				B47B07FB24225A210046ACF2 /* Assets.xcassets in Resources */,
+				B48961DF243FD37F00DA988F /* AirbnbCereal-ExtraBold.ttf in Resources */,
+				B48961D1243FD34500DA988F /* icons8-cat-pot.pdf in Resources */,
+				B48961D3243FD34500DA988F /* icons8-dose.pdf in Resources */,
+				B48961DB243FD37F00DA988F /* AirbnbCereal-Bold.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

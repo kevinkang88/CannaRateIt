@@ -31,7 +31,8 @@ struct ExploreView: View {
 			ZStack(alignment: .bottom) {
 
 				VStack(alignment: .leading, spacing: 0.0) {
-					
+					Text("Explore")
+					Text("CBD Products!")
 					CategoryPickerView(selectedCategory: $selectedCategoryStore.selectedCategory).padding()
 					
 					List {
@@ -62,10 +63,10 @@ struct ExploreView: View {
 				}.frame(width: 80, height: 80, alignment: .center)
 			}.onAppear {
 				self.selectedCategoryStore.selectedCategory = "edible"
-			}.navigationBarTitle("Explore", displayMode: .automatic)
+			}.navigationBarHidden(true)
 		}.sheet(isPresented: $showAddProductSheet) {
 			AddProductView()
-		}
+		}.edgesIgnoringSafeArea(.top)
 	}
 }
 

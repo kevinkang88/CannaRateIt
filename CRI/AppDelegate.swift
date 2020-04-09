@@ -19,6 +19,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		// Override point for customization after application launch.
 		
 		FirebaseApp.configure()
+		
+
+//		let statusBar1 =  UIView()
+//		statusBar1.frame = UIApplication.shared.keyWindow?.windowScene?.statusBarManager!.statusBarFrame as! CGRect
+//		statusBar1.backgroundColor = UIColor.black
+//
+//		UIApplication.shared.keyWindow?.windowScene?.statusBarManager?.
+//		UIApplication.shared.keyWindow?.addSubview(statusBar1)
 
 		return true
 	}
