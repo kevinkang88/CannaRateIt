@@ -31,7 +31,7 @@ struct ProductCardCell: View {
 				
 				Spacer().frame(height: 8.0)
 			}.cornerRadius(20.0)
-			Text("Updated 2 days ago").font(Font.custom("AirbnbCerealApp-Light", size: 10.0)).padding(.horizontal, 10.0)
+			Text("Updated 2 days ago").font(Font.custom("AirbnbCerealApp-Light", size: 10.0)).padding(.horizontal, 10.0).padding(.top, -10)
 		}
     }
 }

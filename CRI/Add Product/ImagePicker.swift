@@ -41,7 +41,8 @@ class ImagePickerCoordinator : NSObject, UINavigationControllerDelegate, UIImage
     
     //Selected Image
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        image = info[UIImagePickerController.InfoKey.originalImage] as! UIImage
+        let extractedImage = info[UIImagePickerController.InfoKey.originalImage] as! UIImage
+		image = extractedImage.resized(toWidth: 250.0)
         isShown = false
     }
     
@@ -66,3 +67,13 @@ struct PhotoCaptureView: View {
 //        PhotoCaptureView(showImagePicker: .constant(false), image: .constant(Image("")))
 //    }
 //}
+
+extension UIImage {
+    func resized(toWidth width: CGFloat) -> UIImage? {
+        let canvasSize = CGSize(width: width, height: CGFloat(ceil(width/size.width * size.height)))
+        UIGraphicsBeginImageContextWithOptions(canvasSize, false, scale)
+        defer { UIGraphicsEndImageContext() }
+        draw(in: CGRect(origin: .zero, size: canvasSize))
+        return UIGraphicsGetImageFromCurrentImageContext()
+    }
+}

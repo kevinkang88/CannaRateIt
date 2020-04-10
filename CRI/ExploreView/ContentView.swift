@@ -48,7 +48,7 @@ struct ExploreView: View {
 				}.padding(.horizontal, 15.0)
 									Spacer().frame(height: 10)
 					VStack(alignment: .leading) {
-					CategoryPickerView(selectedCategory: $selectedCategoryStore.selectedCategory).padding().padding(.leading, 2.0)
+					CategoryPickerView(selectedCategory: $selectedCategoryStore.selectedCategory).padding().padding(.horizontal, 4.0)
 									
 					List {
 						ForEach(0..<self.selectedCategoryStore.sections.count, id: \.self) { section in
@@ -63,9 +63,9 @@ struct ExploreView: View {
 								ScrollView(.horizontal, showsIndicators: false) {
 									HStack(alignment: .center, spacing: 25.0) {
 										ForEach(self.selectedCategoryStore.rows(section: section), id: \.self) { product in
-											ProductCardCell(product: product).frame(width: 160, height: 240, alignment: .center)
+											ProductCardCell(product: product).frame(width: 160, height: 230, alignment: .center)
 										}
-									}.frame(height: 240)
+									}.frame(height: 230)
 								}
 							}
 						}
@@ -102,7 +102,10 @@ class SelectedCategoryStore: ObservableObject {
 	
 	@Published var loadedProducts: [String: [Product]] = [:]
 	
-    var sections: [String] { loadedProducts.keys.map { $0 } }
+	var sections: [String] { loadedProducts.keys.map { $0 }.sorted { firstString, secondString -> Bool in
+			return firstString == "trending"
+		}}
+	
     func rows(section: Int) -> [Product] { loadedProducts[sections[section]]! }
 
 	private func fetchProductsFromFirebase(selectedCategory: String) {
