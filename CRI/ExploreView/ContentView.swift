@@ -29,17 +29,32 @@ struct ExploreView: View {
     var body: some View {
 		NavigationView {
 			ZStack(alignment: .bottom) {
-
-				VStack(alignment: .leading, spacing: 0.0) {
-					Text("Explore")
-					Text("CBD Products!")
-					CategoryPickerView(selectedCategory: $selectedCategoryStore.selectedCategory).padding()
-					
+				VStack(alignment: .leading) {
+				VStack(alignment: .leading) {
+					Spacer().frame(height: 10)
+					Text("Explore").padding(.top).font(Font.custom("AirbnbCerealApp-ExtraBold", size: 26.0))
+					Text("CBD Products!").font(Font.custom("AirbnbCerealApp-Black", size: 26.0))
+				}.padding(.horizontal)
+				
+				VStack(alignment: .center) {
+					HStack {
+						Text("Search something").foregroundColor(Color.gray.opacity(0.5)).frame(height: 65.0, alignment: .leading).padding()
+						Spacer()
+						VStack {
+							Image("search").renderingMode(.template).resizable().frame(width: 20, height: 20).foregroundColor(Color.white).padding()
+						}.frame(width: 65, height: 65).background(Color("Blue"))
+						
+					}.frame(width: UIScreen.main.bounds.width - 30.0, height: 65).background(Color.gray.opacity(0.2)).cornerRadius(15)
+				}.padding(.horizontal, 15.0)
+									Spacer().frame(height: 10)
+					VStack(alignment: .leading) {
+					CategoryPickerView(selectedCategory: $selectedCategoryStore.selectedCategory).padding().padding(.leading, 2.0)
+									
 					List {
 						ForEach(0..<self.selectedCategoryStore.sections.count, id: \.self) { section in
 							Section(header: HStack {
 								Text("\(self.selectedCategoryStore.sections[section])".capitalized)
-									.font(Font.system(size: 22.0, weight: .bold, design: .default))
+									.font(Font.custom("AirbnbCerealApp-Black", size: 22.0))
 									.foregroundColor(.black)
 									.padding()
 									Spacer()
@@ -56,11 +71,17 @@ struct ExploreView: View {
 						}
 					}
 				}
+						
+				Spacer(minLength: 11)
+			}
+			
+				
 				Button(action: {
 					self.showAddProductSheet.toggle()
 				}) {
 					Image("plus").resizable().renderingMode(.template).foregroundColor(Color("Blue"))
 				}.frame(width: 80, height: 80, alignment: .center)
+				
 			}.onAppear {
 				self.selectedCategoryStore.selectedCategory = "edible"
 			}.navigationBarHidden(true)
