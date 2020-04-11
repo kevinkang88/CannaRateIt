@@ -40,6 +40,7 @@
 		B48961DE243FD37F00DA988F /* AirbnbCereal-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B48961D8243FD37F00DA988F /* AirbnbCereal-Medium.ttf */; };
 		B48961DF243FD37F00DA988F /* AirbnbCereal-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B48961D9243FD37F00DA988F /* AirbnbCereal-ExtraBold.ttf */; };
 		B48961E0243FD37F00DA988F /* AirbnbCereal-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B48961DA243FD37F00DA988F /* AirbnbCereal-Light.ttf */; };
+		B48961E22440A1AF00DA988F /* icons8-user.pdf in Resources */ = {isa = PBXBuildFile; fileRef = B48961E12440A1AF00DA988F /* icons8-user.pdf */; };
 		B49032692426602300A09CB3 /* CategoryPickerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B49032682426602300A09CB3 /* CategoryPickerCell.swift */; };
 		C5D88415C22B89CA5FA7FE61 /* Pods_CRITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50D317EFD27A8BF7AABE682E /* Pods_CRITests.framework */; };
 		DF7DB357FC603DAF37EF85C8 /* Pods_CRI_CRIUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6FAE57C5A1AB001D277D3BC5 /* Pods_CRI_CRIUITests.framework */; };
@@ -107,6 +108,7 @@
 		B48961D8243FD37F00DA988F /* AirbnbCereal-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "AirbnbCereal-Medium.ttf"; sourceTree = "<group>"; };
 		B48961D9243FD37F00DA988F /* AirbnbCereal-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "AirbnbCereal-ExtraBold.ttf"; sourceTree = "<group>"; };
 		B48961DA243FD37F00DA988F /* AirbnbCereal-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "AirbnbCereal-Light.ttf"; sourceTree = "<group>"; };
+		B48961E12440A1AF00DA988F /* icons8-user.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "icons8-user.pdf"; sourceTree = "<group>"; };
 		B49032682426602300A09CB3 /* CategoryPickerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryPickerCell.swift; sourceTree = "<group>"; };
 		C493C79EC9ACEABE26F758A0 /* Pods-CRI-CRIUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CRI-CRIUITests.debug.xcconfig"; path = "Target Support Files/Pods-CRI-CRIUITests/Pods-CRI-CRIUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		E216E0F496FEAA00388A40C0 /* Pods-CRI.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CRI.release.xcconfig"; path = "Target Support Files/Pods-CRI/Pods-CRI.release.xcconfig"; sourceTree = "<group>"; };
@@ -269,6 +271,7 @@
 				B48961C5243FD34500DA988F /* icons8-doughnut.pdf */,
 				B48961C6243FD34500DA988F /* icons8-iqos.pdf */,
 				B48961C7243FD34500DA988F /* icons8-color-dropper.pdf */,
+				B48961E12440A1AF00DA988F /* icons8-user.pdf */,
 				B48961C8243FD34500DA988F /* icons8-cat-pot.pdf */,
 				B48961C9243FD34500DA988F /* icons8-plus.pdf */,
 				B48961CA243FD34500DA988F /* icons8-dose.pdf */,
@@ -411,6 +414,7 @@
 				B47B080124225A210046ACF2 /* LaunchScreen.storyboard in Resources */,
 				B446647F242FECBA003F79CC /* Colors.xcassets in Resources */,
 				B44136D6243906CD00F3C1C4 /* GoogleService-Info.plist in Resources */,
+				B48961E22440A1AF00DA988F /* icons8-user.pdf in Resources */,
 				B48961DD243FD37F00DA988F /* AirbnbCereal-Book.ttf in Resources */,
 				B47B07FE24225A210046ACF2 /* Preview Assets.xcassets in Resources */,
 				B48961CF243FD34500DA988F /* icons8-iqos.pdf in Resources */,

@@ -30,50 +30,60 @@ struct ExploreView: View {
 		NavigationView {
 			ZStack(alignment: .bottom) {
 				VStack(alignment: .leading) {
-				VStack(alignment: .leading) {
-					Spacer().frame(height: 10)
-					Text("Explore").padding(.top).font(Font.custom("AirbnbCerealApp-ExtraBold", size: 26.0))
-					Text("CBD Products!").font(Font.custom("AirbnbCerealApp-Black", size: 26.0))
-				}.padding(.horizontal)
-				
-				VStack(alignment: .center) {
 					HStack {
-						Text("Search something").foregroundColor(Color.gray.opacity(0.5)).frame(height: 65.0, alignment: .leading).padding()
 						Spacer()
-						VStack {
-							Image("search").renderingMode(.template).resizable().frame(width: 20, height: 20).foregroundColor(Color.white).padding()
-						}.frame(width: 65, height: 65).background(Color("Blue"))
-						
-					}.frame(width: UIScreen.main.bounds.width - 30.0, height: 65).background(Color.gray.opacity(0.2)).cornerRadius(15)
-				}.padding(.horizontal, 15.0)
-									Spacer().frame(height: 10)
+						Button(action: {
+							print("showing profile")
+						}) {
+							ZStack {
+								Image("anon-user").renderingMode(.template).resizable().frame(width: 30.0, height: 30.0).foregroundColor(Color.gray.opacity(0.3))
+							}.frame(width: 44.0, height: 44.0).background(Color.gray.opacity(0.2)).cornerRadius(22).padding(.trailing)
+						}
+					}
 					VStack(alignment: .leading) {
-					CategoryPickerView(selectedCategory: $selectedCategoryStore.selectedCategory).padding().padding(.horizontal, 4.0)
+						Text("Explore").font(Font.custom("AirbnbCerealApp-ExtraBold", size: 26.0))
+						Text("CBD Products!").font(Font.custom("AirbnbCerealApp-Black", size: 26.0))
+					}.padding(.horizontal)
+				
+					VStack(alignment: .center) {
+						HStack {
+							Text("Search something").foregroundColor(Color.gray.opacity(0.5)).frame(height: 65.0, alignment: .leading).padding()
+							Spacer()
+							VStack {
+								Image("search").renderingMode(.template).resizable().frame(width: 20, height: 20).foregroundColor(Color.white).padding()
+							}.frame(width: 65, height: 65).background(Color("Blue"))
+						}.frame(width: UIScreen.main.bounds.width - 30.0, height: 65).background(Color.gray.opacity(0.2)).cornerRadius(15)
+					}.padding(.horizontal, 15.0)
+					
+					Spacer().frame(height: 1)
+					
+					VStack(alignment: .leading) {
+						CategoryPickerView(selectedCategory: $selectedCategoryStore.selectedCategory).padding().padding(.horizontal, 4.0)
 									
-					List {
-						ForEach(0..<self.selectedCategoryStore.sections.count, id: \.self) { section in
-							Section(header: HStack {
-								Text("\(self.selectedCategoryStore.sections[section])".capitalized)
-									.font(Font.custom("AirbnbCerealApp-Black", size: 22.0))
-									.foregroundColor(.black)
-									.padding()
-									Spacer()
-								}.background(Color.white).listRowInsets(EdgeInsets(top: 0,leading: 0,bottom: 0,trailing: 0))
-							) {
-								ScrollView(.horizontal, showsIndicators: false) {
-									HStack(alignment: .center, spacing: 25.0) {
-										ForEach(self.selectedCategoryStore.rows(section: section), id: \.self) { product in
-											ProductCardCell(product: product).frame(width: 160, height: 230, alignment: .center)
-										}
-									}.frame(height: 230)
+						List {
+							ForEach(0..<self.selectedCategoryStore.sections.count, id: \.self) { section in
+								Section(header: HStack {
+									Text("\(self.selectedCategoryStore.sections[section])".capitalized)
+										.font(Font.custom("AirbnbCerealApp-Black", size: 22.0))
+										.foregroundColor(.black)
+										.padding()
+										Spacer()
+									}.background(Color.white).listRowInsets(EdgeInsets(top: 0,leading: 0,bottom: 0,trailing: 0))
+								) {
+									ScrollView(.horizontal, showsIndicators: false) {
+										HStack(alignment: .center, spacing: 25.0) {
+											ForEach(self.selectedCategoryStore.rows(section: section), id: \.self) { product in
+												ProductCardCell(product: product).frame(width: 160, height: 230, alignment: .center)
+											}
+										}.frame(height: 230)
+									}
 								}
 							}
 						}
 					}
-				}
 						
-				Spacer(minLength: 11)
-			}
+					Spacer(minLength: 11)
+				}
 			
 				
 				Button(action: {
