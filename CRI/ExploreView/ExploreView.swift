@@ -105,7 +105,6 @@ struct ExploreView: View {
 				}.edgesIgnoringSafeArea(.all).navigationBarHidden(true)
 				.navigationBarItems(trailing:
 			Button(action: {
-				self.authManager.showAuthSheet = true
 				print("showing profile")
 			}) {
 				ZStack {
@@ -120,7 +119,8 @@ struct ExploreView: View {
 				
 				Button(action: {
 					self.authManager.tappedAppleSignInButton = true
-					self.authManager.showAuthSheet = false
+					self.authManager.tappedAppleSignInButton = false
+					self.authManager.showAuthView = false
 					print("apple sign in tapped")
 				}) {
 					HStack {
@@ -207,13 +207,10 @@ class SelectedCategoryStore: ObservableObject {
 }
 
 class ExploreViewModel: ObservableObject {
-	@Published var tappedAppleSignInButton = false
-	
-	@Published var showAuthSheet  = false {
+	@Published var tappedAppleSignInButton = false {
 		didSet {
-			if showAuthSheet == false && tappedAppleSignInButton {
+			if tappedAppleSignInButton == true {
 				self.showAppleLogin()
-				self.tappedAppleSignInButton = false
 			}
 		}
 	}
