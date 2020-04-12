@@ -19,13 +19,21 @@
 		B4466481242FF664003F79CC /* CategoryPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4466480242FF664003F79CC /* CategoryPickerView.swift */; };
 		B47B07F524225A200046ACF2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B47B07F424225A200046ACF2 /* AppDelegate.swift */; };
 		B47B07F724225A200046ACF2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B47B07F624225A200046ACF2 /* SceneDelegate.swift */; };
-		B47B07F924225A200046ACF2 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B47B07F824225A200046ACF2 /* ContentView.swift */; };
+		B47B07F924225A200046ACF2 /* ExploreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B47B07F824225A200046ACF2 /* ExploreView.swift */; };
 		B47B07FB24225A210046ACF2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B47B07FA24225A210046ACF2 /* Assets.xcassets */; };
 		B47B07FE24225A210046ACF2 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B47B07FD24225A210046ACF2 /* Preview Assets.xcassets */; };
 		B47B080124225A210046ACF2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B47B07FF24225A210046ACF2 /* LaunchScreen.storyboard */; };
 		B47B080C24225A210046ACF2 /* CRITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B47B080B24225A210046ACF2 /* CRITests.swift */; };
 		B47B081724225A210046ACF2 /* CRIUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B47B081624225A210046ACF2 /* CRIUITests.swift */; };
 		B47F8C8C24424FCF008961F5 /* PartialSheet in Frameworks */ = {isa = PBXBuildFile; productRef = B47F8C8B24424FCF008961F5 /* PartialSheet */; };
+		B47F8C942442AA2A008961F5 /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B47F8C8F2442AA2A008961F5 /* UserData.swift */; };
+		B47F8C952442AA2A008961F5 /* UserDataKeychain.swift in Sources */ = {isa = PBXBuildFile; fileRef = B47F8C902442AA2A008961F5 /* UserDataKeychain.swift */; };
+		B47F8C962442AA2A008961F5 /* Keychain.swift in Sources */ = {isa = PBXBuildFile; fileRef = B47F8C912442AA2A008961F5 /* Keychain.swift */; };
+		B47F8C972442AA2A008961F5 /* SharedWebCredential.swift in Sources */ = {isa = PBXBuildFile; fileRef = B47F8C922442AA2A008961F5 /* SharedWebCredential.swift */; };
+		B47F8C982442AA2A008961F5 /* SignInWithAppleToFirebase.swift in Sources */ = {isa = PBXBuildFile; fileRef = B47F8C932442AA2A008961F5 /* SignInWithAppleToFirebase.swift */; };
+		B47F8C9D24434E98008961F5 /* AuthenticationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B47F8C9C24434E98008961F5 /* AuthenticationService.swift */; };
+		B47F8C9F2443B17F008961F5 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B47F8C9E2443B17F008961F5 /* ProfileView.swift */; };
+		B47F8CA12443BEDC008961F5 /* AnonProfileButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B47F8CA02443BEDC008961F5 /* AnonProfileButton.swift */; };
 		B48961C1243DE31500DA988F /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = B48961C0243DE31500DA988F /* ImagePicker.swift */; };
 		B48961CD243FD34500DA988F /* icons8-dispenser.pdf in Resources */ = {isa = PBXBuildFile; fileRef = B48961C4243FD34500DA988F /* icons8-dispenser.pdf */; };
 		B48961CE243FD34500DA988F /* icons8-doughnut.pdf in Resources */ = {isa = PBXBuildFile; fileRef = B48961C5243FD34500DA988F /* icons8-doughnut.pdf */; };
@@ -83,7 +91,7 @@
 		B47B07F124225A200046ACF2 /* CRI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CRI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B47B07F424225A200046ACF2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B47B07F624225A200046ACF2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		B47B07F824225A200046ACF2 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		B47B07F824225A200046ACF2 /* ExploreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreView.swift; sourceTree = "<group>"; };
 		B47B07FA24225A210046ACF2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B47B07FD24225A210046ACF2 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		B47B080024225A210046ACF2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -94,6 +102,15 @@
 		B47B081224225A210046ACF2 /* CRIUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CRIUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B47B081624225A210046ACF2 /* CRIUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CRIUITests.swift; sourceTree = "<group>"; };
 		B47B081824225A210046ACF2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B47F8C8F2442AA2A008961F5 /* UserData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
+		B47F8C902442AA2A008961F5 /* UserDataKeychain.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDataKeychain.swift; sourceTree = "<group>"; };
+		B47F8C912442AA2A008961F5 /* Keychain.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Keychain.swift; sourceTree = "<group>"; };
+		B47F8C922442AA2A008961F5 /* SharedWebCredential.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SharedWebCredential.swift; sourceTree = "<group>"; };
+		B47F8C932442AA2A008961F5 /* SignInWithAppleToFirebase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInWithAppleToFirebase.swift; sourceTree = "<group>"; };
+		B47F8C992442ADB2008961F5 /* CRI.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CRI.entitlements; sourceTree = "<group>"; };
+		B47F8C9C24434E98008961F5 /* AuthenticationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationService.swift; sourceTree = "<group>"; };
+		B47F8C9E2443B17F008961F5 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		B47F8CA02443BEDC008961F5 /* AnonProfileButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnonProfileButton.swift; sourceTree = "<group>"; };
 		B48961C0243DE31500DA988F /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		B48961C4243FD34500DA988F /* icons8-dispenser.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "icons8-dispenser.pdf"; sourceTree = "<group>"; };
 		B48961C5243FD34500DA988F /* icons8-doughnut.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "icons8-doughnut.pdf"; sourceTree = "<group>"; };
@@ -181,9 +198,10 @@
 			isa = PBXGroup;
 			children = (
 				B44136D9243BD32200F3C1C4 /* ProductCardCell.swift */,
-				B47B07F824225A200046ACF2 /* ContentView.swift */,
+				B47B07F824225A200046ACF2 /* ExploreView.swift */,
 				B490326A2426602700A09CB3 /* CategoryPicker */,
 				B43CAC8C243C09F1000B84FA /* Stars.swift */,
+				B47F8CA02443BEDC008961F5 /* AnonProfileButton.swift */,
 			);
 			path = ExploreView;
 			sourceTree = "<group>";
@@ -213,9 +231,11 @@
 		B47B07F324225A200046ACF2 /* CRI */ = {
 			isa = PBXGroup;
 			children = (
+				B47F8C992442ADB2008961F5 /* CRI.entitlements */,
 				B43CAC8E243CF281000B84FA /* Add Product */,
 				B44136DB243BD80A00F3C1C4 /* ExploreView */,
 				B44136D5243906CD00F3C1C4 /* GoogleService-Info.plist */,
+				B47F8C8D2442AA2A008961F5 /* AppleSignin */,
 				B47B07F424225A200046ACF2 /* AppDelegate.swift */,
 				B47B07F624225A200046ACF2 /* SceneDelegate.swift */,
 				B446647E242FECBA003F79CC /* Colors.xcassets */,
@@ -227,6 +247,8 @@
 				B43CAC88243BE4AD000B84FA /* ImageView.swift */,
 				B43CAC8A243BE4C7000B84FA /* ImageLoader.swift */,
 				B48961C2243FD34500DA988F /* Resources */,
+				B47F8C9C24434E98008961F5 /* AuthenticationService.swift */,
+				B47F8C9E2443B17F008961F5 /* ProfileView.swift */,
 			);
 			path = CRI;
 			sourceTree = "<group>";
@@ -255,6 +277,26 @@
 				B47B081824225A210046ACF2 /* Info.plist */,
 			);
 			path = CRIUITests;
+			sourceTree = "<group>";
+		};
+		B47F8C8D2442AA2A008961F5 /* AppleSignin */ = {
+			isa = PBXGroup;
+			children = (
+				B47F8C8E2442AA2A008961F5 /* CredentialStorage */,
+				B47F8C932442AA2A008961F5 /* SignInWithAppleToFirebase.swift */,
+			);
+			path = AppleSignin;
+			sourceTree = "<group>";
+		};
+		B47F8C8E2442AA2A008961F5 /* CredentialStorage */ = {
+			isa = PBXGroup;
+			children = (
+				B47F8C8F2442AA2A008961F5 /* UserData.swift */,
+				B47F8C902442AA2A008961F5 /* UserDataKeychain.swift */,
+				B47F8C912442AA2A008961F5 /* Keychain.swift */,
+				B47F8C922442AA2A008961F5 /* SharedWebCredential.swift */,
+			);
+			path = CredentialStorage;
 			sourceTree = "<group>";
 		};
 		B48961C2243FD34500DA988F /* Resources */ = {
@@ -566,18 +608,26 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B47F8C942442AA2A008961F5 /* UserData.swift in Sources */,
+				B47F8C982442AA2A008961F5 /* SignInWithAppleToFirebase.swift in Sources */,
 				B43CAC89243BE4AD000B84FA /* ImageView.swift in Sources */,
 				B43CAC8D243C09F1000B84FA /* Stars.swift in Sources */,
 				B47B07F524225A200046ACF2 /* AppDelegate.swift in Sources */,
+				B47F8C972442AA2A008961F5 /* SharedWebCredential.swift in Sources */,
 				B44136DA243BD32200F3C1C4 /* ProductCardCell.swift in Sources */,
 				B47B07F724225A200046ACF2 /* SceneDelegate.swift in Sources */,
 				B43CAC90243CF296000B84FA /* AddProductView.swift in Sources */,
-				B47B07F924225A200046ACF2 /* ContentView.swift in Sources */,
+				B47B07F924225A200046ACF2 /* ExploreView.swift in Sources */,
 				B43CAC8B243BE4C7000B84FA /* ImageLoader.swift in Sources */,
 				B49032692426602300A09CB3 /* CategoryPickerCell.swift in Sources */,
+				B47F8C9F2443B17F008961F5 /* ProfileView.swift in Sources */,
+				B47F8C952442AA2A008961F5 /* UserDataKeychain.swift in Sources */,
 				B48961C1243DE31500DA988F /* ImagePicker.swift in Sources */,
 				B4466481242FF664003F79CC /* CategoryPickerView.swift in Sources */,
+				B47F8C9D24434E98008961F5 /* AuthenticationService.swift in Sources */,
 				B44136D8243A2C9D00F3C1C4 /* Product.swift in Sources */,
+				B47F8CA12443BEDC008961F5 /* AnonProfileButton.swift in Sources */,
+				B47F8C962442AA2A008961F5 /* Keychain.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -743,6 +793,7 @@
 			baseConfigurationReference = 295353C241D206EE2E7E0A21 /* Pods-CRI.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = CRI/CRI.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"CRI/Preview Content\"";
 				DEVELOPMENT_TEAM = SRYM53R5XT;
@@ -752,7 +803,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.yooniverse.CRI;
+				PRODUCT_BUNDLE_IDENTIFIER = com.yooniverse.CannaRateIt;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -764,6 +815,7 @@
 			baseConfigurationReference = E216E0F496FEAA00388A40C0 /* Pods-CRI.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = CRI/CRI.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"CRI/Preview Content\"";
 				DEVELOPMENT_TEAM = SRYM53R5XT;
@@ -773,7 +825,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.yooniverse.CRI;
+				PRODUCT_BUNDLE_IDENTIFIER = com.yooniverse.CannaRateIt;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
