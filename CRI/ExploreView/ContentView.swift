@@ -9,14 +9,16 @@
 import SwiftUI
 
 import Firebase
-
 import FirebaseStorage
+import PartialSheet
 
 struct ExploreView: View {
 	
     @ObservedObject var selectedCategoryStore = SelectedCategoryStore()
 	
 	@State var showAddProductSheet = false
+	
+	@State var showAuth = false
 	
 	init() {
 		// To remove only extra separators below the list:
@@ -30,16 +32,19 @@ struct ExploreView: View {
 		NavigationView {
 			ZStack(alignment: .bottom) {
 				VStack(alignment: .leading) {
+
 					HStack {
 						Spacer()
 						Button(action: {
+							self.showAuth = true
 							print("showing profile")
 						}) {
 							ZStack {
 								Image("anon-user").renderingMode(.template).resizable().frame(width: 30.0, height: 30.0).foregroundColor(Color.gray.opacity(0.3))
-							}.frame(width: 44.0, height: 44.0).background(Color.gray.opacity(0.2)).cornerRadius(22).padding(.trailing)
+								}.frame(width: 44.0, height: 44.0).background(Color.gray.opacity(0.2)).cornerRadius(22).padding(.trailing)
 						}
-					}
+					}.padding(.top, 40.0)
+					
 					VStack(alignment: .leading) {
 						Text("Explore").font(Font.custom("AirbnbCerealApp-ExtraBold", size: 26.0))
 						Text("CBD Products!").font(Font.custom("AirbnbCerealApp-Black", size: 26.0))
@@ -94,10 +99,24 @@ struct ExploreView: View {
 				
 			}.onAppear {
 				self.selectedCategoryStore.selectedCategory = "edible"
-			}.navigationBarHidden(true)
+				}.edgesIgnoringSafeArea(.all).navigationBarHidden(true).navigationBarItems(trailing:
+			Button(action: {
+				self.showAuth = true
+				print("showing profile")
+			}) {
+				ZStack {
+					Image("anon-user").renderingMode(.template).resizable().frame(width: 30.0, height: 30.0).foregroundColor(Color.gray.opacity(0.3))
+					}.frame(width: 44.0, height: 44.0).background(Color.gray.opacity(0.2)).cornerRadius(22).padding(.trailing)
+			}
+			)
 		}.sheet(isPresented: $showAddProductSheet) {
 			AddProductView()
-		}.edgesIgnoringSafeArea(.top)
+		}.partialSheet(presented: $showAuth) {
+			VStack {
+				Text("Apple Sign in")
+				Text("Google Sign in")
+			}
+		}
 	}
 }
 

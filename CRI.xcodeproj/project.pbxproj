@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -25,6 +25,7 @@
 		B47B080124225A210046ACF2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B47B07FF24225A210046ACF2 /* LaunchScreen.storyboard */; };
 		B47B080C24225A210046ACF2 /* CRITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B47B080B24225A210046ACF2 /* CRITests.swift */; };
 		B47B081724225A210046ACF2 /* CRIUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B47B081624225A210046ACF2 /* CRIUITests.swift */; };
+		B47F8C8C24424FCF008961F5 /* PartialSheet in Frameworks */ = {isa = PBXBuildFile; productRef = B47F8C8B24424FCF008961F5 /* PartialSheet */; };
 		B48961C1243DE31500DA988F /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = B48961C0243DE31500DA988F /* ImagePicker.swift */; };
 		B48961CD243FD34500DA988F /* icons8-dispenser.pdf in Resources */ = {isa = PBXBuildFile; fileRef = B48961C4243FD34500DA988F /* icons8-dispenser.pdf */; };
 		B48961CE243FD34500DA988F /* icons8-doughnut.pdf in Resources */ = {isa = PBXBuildFile; fileRef = B48961C5243FD34500DA988F /* icons8-doughnut.pdf */; };
@@ -120,6 +121,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B47F8C8C24424FCF008961F5 /* PartialSheet in Frameworks */,
 				7CD2AF8CE14D0E4845DF62DB /* Pods_CRI.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -320,6 +322,9 @@
 			dependencies = (
 			);
 			name = CRI;
+			packageProductDependencies = (
+				B47F8C8B24424FCF008961F5 /* PartialSheet */,
+			);
 			productName = CRI;
 			productReference = B47B07F124225A200046ACF2 /* CRI.app */;
 			productType = "com.apple.product-type.application";
@@ -395,6 +400,9 @@
 				Base,
 			);
 			mainGroup = B47B07E824225A200046ACF2;
+			packageReferences = (
+				B47F8C8A24424FCF008961F5 /* XCRemoteSwiftPackageReference "PartialSheet" */,
+			);
 			productRefGroup = B47B07F224225A200046ACF2 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -900,6 +908,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		B47F8C8A24424FCF008961F5 /* XCRemoteSwiftPackageReference "PartialSheet" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/AndreaMiotto/PartialSheet";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.1.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		B47F8C8B24424FCF008961F5 /* PartialSheet */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B47F8C8A24424FCF008961F5 /* XCRemoteSwiftPackageReference "PartialSheet" */;
+			productName = PartialSheet;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = B47B07E924225A200046ACF2 /* Project object */;
 }
