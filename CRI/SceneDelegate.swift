@@ -10,8 +10,14 @@ import UIKit
 import SwiftUI
 
 import Firebase
+import GoogleSignIn
 
-class SceneDelegate: UIResponder, UIWindowSceneDelegate {
+class SceneDelegate: UIResponder, UIWindowSceneDelegate, GIDSignInDelegate {
+	
+	func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
+		
+	}
+	
 
 	var window: UIWindow?
 
@@ -20,6 +26,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 		// Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
 		// If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
 		// This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
+		GIDSignIn.sharedInstance().clientID = "534263408075-priaf6rqh3b7af3scc52fc1eff9fii77.apps.googleusercontent.com"
+		GIDSignIn.sharedInstance().delegate = self  // If AppDelegate conforms to GIDSignInDelegate
+		
 		FirebaseApp.configure()
 		
 		// Create the SwiftUI view that provides the window contents.

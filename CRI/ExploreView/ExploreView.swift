@@ -14,6 +14,7 @@ import AuthenticationServices
 import Firebase
 import FirebaseStorage
 import PartialSheet
+import GoogleSignIn
 
 struct ExploreView: View {
 	
@@ -22,6 +23,8 @@ struct ExploreView: View {
     @ObservedObject var authManager = ExploreViewModel()
 	
 	@State var showAddProductSheet = false
+	
+	var socialLogin = SocialLogin()
 	
 		
 	init() {
@@ -132,8 +135,8 @@ struct ExploreView: View {
 				}
 				
 				Button(action: {
-
-					print("google sign in tapped")
+					self.authManager.showAuthView = false
+					self.socialLogin.attemptLoginGoogle()
 				}) {
 					HStack {
 						Image("google-icon").renderingMode(.original).resizable().aspectRatio(contentMode: .fit).frame(width: 50, height: 50)
@@ -202,11 +205,31 @@ class SelectedCategoryStore: ObservableObject {
 			
 			self.loadedProducts = result
 		}
-		
 	}
 }
 
-class ExploreViewModel: ObservableObject {
+class ExploreViewModel: NSObject, ObservableObject, GIDSignInDelegate {
+	
+	override init() {
+		super.init()
+		GIDSignIn.sharedInstance()?.delegate = self
+	}
+	
+	func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
+		if let error = error {
+		  return
+		}
+		
+		guard let authentication = user.authentication else { return }
+		
+		let credential = GoogleAuthProvider.credential(withIDToken: authentication.idToken,
+														  accessToken: authentication.accessToken)
+		
+		Auth.auth().signIn(with: credential) { result, error in
+			print(result)
+		}
+	}
+	
 	@Published var tappedAppleSignInButton = false {
 		didSet {
 			if tappedAppleSignInButton == true {
@@ -300,8 +323,21 @@ class ExploreViewModel: ObservableObject {
 
 		   return hashString
 	   }
-	
-	
+}
+
+struct SocialLogin: UIViewRepresentable {
+
+    func makeUIView(context: UIViewRepresentableContext<SocialLogin>) -> UIView {
+        return UIView()
+    }
+
+    func updateUIView(_ uiView: UIView, context: UIViewRepresentableContext<SocialLogin>) {
+    }
+
+    func attemptLoginGoogle() {
+        GIDSignIn.sharedInstance()?.presentingViewController = UIApplication.shared.windows.last?.rootViewController
+        GIDSignIn.sharedInstance()?.signIn()
+    }
 }
 
 class SignInWithAppleDelegates: NSObject {
