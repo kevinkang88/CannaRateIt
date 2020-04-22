@@ -20,9 +20,13 @@ struct ExploreView: View {
 	
     @ObservedObject var selectedCategoryStore = SelectedCategoryStore()
 	
-    @ObservedObject var authManager = ExploreViewModel()
+    @ObservedObject var viewModel = ExploreViewModel()
 	
 	@State var showAddProductSheet = false
+	
+	@State var shiftUpSearchBar = false
+	
+	@State var searchBarOffset: CGFloat = 0.0
 	
 	var socialLogin = SocialLogin()
 	
@@ -38,33 +42,75 @@ struct ExploreView: View {
     var body: some View {
 		NavigationView {
 			ZStack(alignment: .bottom) {
+				
 				VStack(alignment: .leading) {
 
-					HStack {
-						Spacer()
-						Button(action: {
-							self.authManager.attemptToShowProfileView = true
-						}) {
-							ZStack {
-								Image("anon-user").renderingMode(.template).resizable().frame(width: 30.0, height: 30.0).foregroundColor(Color.gray.opacity(0.3))
-								}.frame(width: 44.0, height: 44.0).background(Color.gray.opacity(0.2)).cornerRadius(22).padding(.trailing)
-						}
-					}.padding(.top, 40.0)
 					
-					VStack(alignment: .leading) {
-						Text("Explore").font(Font.custom("AirbnbCerealApp-ExtraBold", size: 26.0))
-						Text("CBD Products!").font(Font.custom("AirbnbCerealApp-Black", size: 26.0))
-					}.padding(.horizontal)
-				
-					VStack(alignment: .center) {
+					if self.shiftUpSearchBar {
+
+						VStack(alignment: .center) {
+							HStack {
+								Text("Search something").foregroundColor(Color.gray.opacity(0.5)).frame(height: 65.0, alignment: .leading).padding()
+								Spacer()
+								VStack {
+									Image("search").renderingMode(.template).resizable().frame(width: 20, height: 20).foregroundColor(Color.white).padding()
+								}.frame(width: 65, height: 65).background(Color("Blue"))
+							}.frame(width: UIScreen.main.bounds.width - 30.0, height: 65).background(Color.gray.opacity(0.2)).cornerRadius(15).offset(y: self.searchBarOffset)
+						}.padding(.horizontal, 15.0).onTapGesture {
+							withAnimation(.easeIn) {
+								self.shiftUpSearchBar = false
+							}
+						}.padding(.top, 40.0)
+						
 						HStack {
-							Text("Search something").foregroundColor(Color.gray.opacity(0.5)).frame(height: 65.0, alignment: .leading).padding()
 							Spacer()
-							VStack {
-								Image("search").renderingMode(.template).resizable().frame(width: 20, height: 20).foregroundColor(Color.white).padding()
-							}.frame(width: 65, height: 65).background(Color("Blue"))
-						}.frame(width: UIScreen.main.bounds.width - 30.0, height: 65).background(Color.gray.opacity(0.2)).cornerRadius(15)
-					}.padding(.horizontal, 15.0)
+							Button(action: {
+								self.viewModel.attemptToShowProfileView = true
+							}) {
+								ZStack {
+									Image("anon-user").renderingMode(.template).resizable().frame(width: 30.0, height: 30.0).foregroundColor(Color.gray.opacity(0.3))
+									}.frame(width: 44.0, height: 44.0).background(Color.gray.opacity(0.2)).cornerRadius(22).padding(.trailing)
+							}
+						}
+						
+						VStack(alignment: .leading) {
+							Text("Explore").font(Font.custom("AirbnbCerealApp-ExtraBold", size: 26.0))
+							Text("CBD Products!").font(Font.custom("AirbnbCerealApp-Black", size: 26.0))
+						}.padding(.horizontal).zIndex(1.0)
+						
+					} else {
+						
+						HStack {
+							Spacer()
+							Button(action: {
+								self.viewModel.attemptToShowProfileView = true
+							}) {
+								ZStack {
+									Image("anon-user").renderingMode(.template).resizable().frame(width: 30.0, height: 30.0).foregroundColor(Color.gray.opacity(0.3))
+									}.frame(width: 44.0, height: 44.0).background(Color.gray.opacity(0.2)).cornerRadius(22).padding(.trailing)
+							}
+						}.padding(.top, 40.0)
+						
+						VStack(alignment: .leading) {
+							Text("Explore").font(Font.custom("AirbnbCerealApp-ExtraBold", size: 26.0))
+							Text("CBD Products!").font(Font.custom("AirbnbCerealApp-Black", size: 26.0))
+						}.padding(.horizontal).zIndex(1.0)
+						
+						VStack(alignment: .center) {
+							HStack {
+								Text("Search something").foregroundColor(Color.gray.opacity(0.5)).frame(height: 65.0, alignment: .leading).padding()
+								Spacer()
+								VStack {
+									Image("search").renderingMode(.template).resizable().frame(width: 20, height: 20).foregroundColor(Color.white).padding()
+								}.frame(width: 65, height: 65).background(Color("Blue"))
+							}.frame(width: UIScreen.main.bounds.width - 30.0, height: 65).background(Color.gray.opacity(0.2)).cornerRadius(15).offset(y: self.searchBarOffset)
+						}.padding(.horizontal, 15.0).onTapGesture {
+							withAnimation(.easeIn) {
+								self.shiftUpSearchBar = true
+							}
+						}
+					}
+
 					
 					Spacer().frame(height: 1)
 					
@@ -117,13 +163,13 @@ struct ExploreView: View {
 			)
 		}.sheet(isPresented: $showAddProductSheet) {
 			AddProductView()
-		}.partialSheet(presented: self.$authManager.showAuthView, backgroundColor: Color("Blue"), handlerBarColor: Color.white, enableCover: true, coverColor: Color.black.opacity(0.8), view: {
+		}.partialSheet(presented: self.$viewModel.showAuthView, backgroundColor: Color("Blue"), handlerBarColor: Color.white, enableCover: true, coverColor: Color.black.opacity(0.8), view: {
 			VStack {
 				
 				Button(action: {
-					self.authManager.tappedAppleSignInButton = true
-					self.authManager.tappedAppleSignInButton = false
-					self.authManager.showAuthView = false
+					self.viewModel.tappedAppleSignInButton = true
+					self.viewModel.tappedAppleSignInButton = false
+					self.viewModel.showAuthView = false
 					print("apple sign in tapped")
 				}) {
 					HStack {
@@ -135,7 +181,7 @@ struct ExploreView: View {
 				}
 				
 				Button(action: {
-					self.authManager.showAuthView = false
+					self.viewModel.showAuthView = false
 					self.socialLogin.attemptLoginGoogle()
 				}) {
 					HStack {
@@ -146,8 +192,24 @@ struct ExploreView: View {
 					}.padding(.horizontal).padding(.vertical, 5.0).background(Color.white).cornerRadius(10.0)
 				}
 			}
-		}).sheet(isPresented: self.$authManager.showProfileView) {
-			ProfileView(showProfileView: self.$authManager.showProfileView)
+		}).sheet(isPresented: self.$viewModel.showProfileView) {
+			ProfileView(showProfileView: self.$viewModel.showProfileView)
+		}.showSearchSheet(presented: self.$shiftUpSearchBar) {
+			VStack {
+				VStack(alignment: .center) {
+					HStack {
+						CustomTextField(text: self.$viewModel.searchedText, isFirstResponder: true).padding()
+						Spacer()
+						VStack {
+							Image("search").renderingMode(.template).resizable().frame(width: 20, height: 20).foregroundColor(Color.white).padding()
+						}.onTapGesture {
+							print("hello")
+						}.frame(width: 65, height: 65).background(Color("Blue"))
+					}.frame(width: UIScreen.main.bounds.width - 30.0, height: 65).background(Color.gray.opacity(0.2)).cornerRadius(15).offset(y: self.searchBarOffset)
+				}.padding(.horizontal, 15.0)
+				Spacer()
+			}
+			
 		}
 	}
 }
@@ -216,8 +278,10 @@ class ExploreViewModel: NSObject, ObservableObject, GIDSignInDelegate {
 	}
 	
 	func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
+		
 		if let error = error {
-		  return
+			print(error)
+			return
 		}
 		
 		guard let authentication = user.authentication else { return }
@@ -228,7 +292,7 @@ class ExploreViewModel: NSObject, ObservableObject, GIDSignInDelegate {
 		Auth.auth().signIn(with: credential) { result, error in
 			print(result)
 		}
-	}
+}
 	
 	@Published var tappedAppleSignInButton = false {
 		didSet {
@@ -247,9 +311,13 @@ class ExploreViewModel: NSObject, ObservableObject, GIDSignInDelegate {
 			}
 		}
 	}
-	
+		
 	@Published var showProfileView: Bool = false
 	@Published var showAuthView: Bool = false
+	
+	//
+	@Published var searchedText: String = ""
+	//
 	
     private var appleSignInDelegates: SignInWithAppleDelegates! = nil
 	
@@ -314,15 +382,20 @@ class ExploreViewModel: NSObject, ObservableObject, GIDSignInDelegate {
 		   return result
 	   }
 
-	   private func sha256(_ input: String) -> String {
-		   let inputData = Data(input.utf8)
-		   let hashedData = SHA256.hash(data: inputData)
-		   let hashString = hashedData.compactMap {
-		   return String(format: "%02x", $0)
-		   }.joined()
+	private func sha256(_ input: String) -> String {
+	   let inputData = Data(input.utf8)
+	   let hashedData = SHA256.hash(data: inputData)
+	   let hashString = hashedData.compactMap {
+	   return String(format: "%02x", $0)
+	   }.joined()
 
-		   return hashString
-	   }
+	   return hashString
+	}
+	
+	 func search() {
+		// get the current text and make sure it is not empty
+		// setup elastic search for Products in Firestore
+	}
 }
 
 struct SocialLogin: UIViewRepresentable {
