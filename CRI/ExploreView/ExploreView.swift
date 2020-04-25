@@ -197,7 +197,7 @@ struct ExploreView: View {
 			ProfileView(showProfileView: self.$viewModel.showProfileView)
 		}.showSearchSheet(presented: self.$shiftUpSearchBar) {
 			VStack {
-				VStack(alignment: .center) {
+				VStack {
 					HStack {
 						CustomTextField(text: self.$viewModel.searchedText, isFirstResponder: true).padding()
 						Spacer()
@@ -205,17 +205,32 @@ struct ExploreView: View {
 							Image("search").renderingMode(.template).resizable().frame(width: 20, height: 20).foregroundColor(Color.white).padding()
 						}.onTapGesture {
 							self.viewModel.search(searchQuery: self.viewModel.searchedText)
-							print("hello")
-							//
 						}.frame(width: 65, height: 65).background(Color("Blue"))
 					}.frame(width: UIScreen.main.bounds.width - 30.0, height: 65).background(Color.gray.opacity(0.2)).cornerRadius(15).offset(y: self.searchBarOffset)
 				}.padding(.horizontal, 15.0)
 				
-				VStack {
-					
+				Spacer().frame(height: 20)
+				
+				VStack(alignment: .leading) {
 					ForEach(self.$viewModel.searchResults.wrappedValue, id: \.self) { product in
-						Text(product.name.capitalized)
-							.padding().background(Color.red)
+						VStack {
+							HStack {
+								Text(product.name.capitalized)
+									.font(Font.custom("AirbnbCerealApp-Medium", size: 14.0))
+									.foregroundColor(Color.white)
+									.padding()
+								Text("•")
+									.foregroundColor(Color.white)
+
+								Text(product.brand.capitalized)
+									.font(Font.custom("AirbnbCerealApp-Medium", size: 14.0))
+									.foregroundColor(Color.white)
+									.padding()
+								Spacer()
+							}
+						
+						}.padding(.horizontal)
+						
 					}
 				}
 				
