@@ -54,6 +54,7 @@
 		B48961E0243FD37F00DA988F /* AirbnbCereal-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B48961DA243FD37F00DA988F /* AirbnbCereal-Light.ttf */; };
 		B48961E22440A1AF00DA988F /* icons8-user.pdf in Resources */ = {isa = PBXBuildFile; fileRef = B48961E12440A1AF00DA988F /* icons8-user.pdf */; };
 		B49032692426602300A09CB3 /* CategoryPickerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B49032682426602300A09CB3 /* CategoryPickerCell.swift */; };
+		B4D10E8D2454203400C3B813 /* Fuzzy in Frameworks */ = {isa = PBXBuildFile; productRef = B4D10E8C2454203400C3B813 /* Fuzzy */; };
 		C5D88415C22B89CA5FA7FE61 /* Pods_CRITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50D317EFD27A8BF7AABE682E /* Pods_CRITests.framework */; };
 		DF7DB357FC603DAF37EF85C8 /* Pods_CRI_CRIUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6FAE57C5A1AB001D277D3BC5 /* Pods_CRI_CRIUITests.framework */; };
 /* End PBXBuildFile section */
@@ -144,6 +145,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B4D10E8D2454203400C3B813 /* Fuzzy in Frameworks */,
 				B47F8C8C24424FCF008961F5 /* PartialSheet in Frameworks */,
 				7CD2AF8CE14D0E4845DF62DB /* Pods_CRI.framework in Frameworks */,
 			);
@@ -384,6 +386,7 @@
 			name = CRI;
 			packageProductDependencies = (
 				B47F8C8B24424FCF008961F5 /* PartialSheet */,
+				B4D10E8C2454203400C3B813 /* Fuzzy */,
 			);
 			productName = CRI;
 			productReference = B47B07F124225A200046ACF2 /* CRI.app */;
@@ -463,6 +466,7 @@
 			mainGroup = B47B07E824225A200046ACF2;
 			packageReferences = (
 				B47F8C8A24424FCF008961F5 /* XCRemoteSwiftPackageReference "PartialSheet" */,
+				B4D10E8B2454203300C3B813 /* XCRemoteSwiftPackageReference "fuzzy-swift" */,
 			);
 			productRefGroup = B47B07F224225A200046ACF2 /* Products */;
 			projectDirPath = "";
@@ -1026,6 +1030,14 @@
 				minimumVersion = 0.1.0;
 			};
 		};
+		B4D10E8B2454203300C3B813 /* XCRemoteSwiftPackageReference "fuzzy-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/khoi/fuzzy-swift";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.1.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -1033,6 +1045,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = B47F8C8A24424FCF008961F5 /* XCRemoteSwiftPackageReference "PartialSheet" */;
 			productName = PartialSheet;
+		};
+		B4D10E8C2454203400C3B813 /* Fuzzy */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B4D10E8B2454203300C3B813 /* XCRemoteSwiftPackageReference "fuzzy-swift" */;
+			productName = Fuzzy;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

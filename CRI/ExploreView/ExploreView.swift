@@ -15,6 +15,7 @@ import Firebase
 import FirebaseStorage
 import PartialSheet
 import GoogleSignIn
+import Fuzzy
 
 struct ExploreView: View {
 	
@@ -203,10 +204,21 @@ struct ExploreView: View {
 						VStack {
 							Image("search").renderingMode(.template).resizable().frame(width: 20, height: 20).foregroundColor(Color.white).padding()
 						}.onTapGesture {
+							self.viewModel.search(searchQuery: self.viewModel.searchedText)
 							print("hello")
+							//
 						}.frame(width: 65, height: 65).background(Color("Blue"))
 					}.frame(width: UIScreen.main.bounds.width - 30.0, height: 65).background(Color.gray.opacity(0.2)).cornerRadius(15).offset(y: self.searchBarOffset)
 				}.padding(.horizontal, 15.0)
+				
+				VStack {
+					
+					ForEach(self.$viewModel.searchResults.wrappedValue, id: \.self) { product in
+						Text(product.name.capitalized)
+							.padding().background(Color.red)
+					}
+				}
+				
 				Spacer()
 			}
 			
@@ -292,7 +304,7 @@ class ExploreViewModel: NSObject, ObservableObject, GIDSignInDelegate {
 		Auth.auth().signIn(with: credential) { result, error in
 			print(result)
 		}
-}
+	}
 	
 	@Published var tappedAppleSignInButton = false {
 		didSet {
@@ -315,8 +327,45 @@ class ExploreViewModel: NSObject, ObservableObject, GIDSignInDelegate {
 	@Published var showProfileView: Bool = false
 	@Published var showAuthView: Bool = false
 	
-	//
+	// Search
 	@Published var searchedText: String = ""
+	@Published var searchResults = [Product]()
+	
+	func search(searchQuery: String) {
+		var products = [Product]()
+		let query = Firestore.firestore().collection("products")
+			query.getDocuments { snap, err in
+				if err != nil {
+					print((err?.localizedDescription)!)
+					return
+				}
+				
+				for doc in (snap?.documentChanges)! {
+					let id = doc.document.documentID
+					let name = doc.document.data()["name"] as! String
+					let brand = doc.document.data()["brand"] as! String
+					let category = Product.Category(rawValue: doc.document.data()["category"] as! String) as! Product.Category
+					let mainIngredient = Product.MainIngredient(rawValue: doc.document.data()["mainIngredient"] as! String) as! Product.MainIngredient
+					let isTrending = doc.document.data()["isTrending"] as! Bool
+					let averageRating = doc.document.data()["averageRating"] as! Float
+					let updatedDate = (doc.document.data()["lastUpdated"] as! Timestamp).dateValue() as! Date
+					
+					products.append(Product(id: id, name: name, brand: brand, category: category, mainIngredient: mainIngredient, isTrending: isTrending, averageRating: averageRating, lastUpdated: updatedDate))
+				}
+				
+				var matchedProducts = [Product]()
+				for product in products {
+					if Fuzzy.search(needle: searchQuery, haystack: "\(product.brand) \(product.name)") {
+						matchedProducts.append(product)
+					}
+				}
+
+				
+				self.searchResults = matchedProducts
+				
+			}
+	}
+	
 	//
 	
     private var appleSignInDelegates: SignInWithAppleDelegates! = nil

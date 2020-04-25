@@ -8,7 +8,9 @@
 
 import Foundation
 
-struct Product: Hashable, Codable, Identifiable {
+import Fuse
+
+struct Product: Hashable, Codable, Identifiable, Fuseable {
 	// only optional for exporting
 	var id: String?
 	var name: String
@@ -30,5 +32,12 @@ struct Product: Hashable, Codable, Identifiable {
 	
 	enum MainIngredient: String, CaseIterable, Codable, Hashable {
 		case cbd = "cbd"
+	}
+	
+	var properties: [FuseProperty] {
+		return [
+			FuseProperty(name: self.name, weight: 0.6),
+			FuseProperty(name: self.brand, weight: 0.4)
+		]
 	}
 }
