@@ -146,10 +146,12 @@ struct ExploreView: View {
 			
 				
 				Button(action: {
-					self.showAddProductSheet.toggle()
+					self.viewModel.attemptToAddProduct = true
 				}) {
 					Image("plus").resizable().renderingMode(.template).foregroundColor(Color("Blue"))
-				}.frame(width: 80, height: 80, alignment: .center)
+				}.frame(width: 60, height: 60, alignment: .center).padding().sheet(isPresented: self.$viewModel.showAddProductView) {
+					AddProductView()
+				}
 				
 			}.onAppear {
 				self.selectedCategoryStore.selectedCategory = "edible"
@@ -163,8 +165,6 @@ struct ExploreView: View {
 					}.frame(width: 44.0, height: 44.0).background(Color.gray.opacity(0.2)).cornerRadius(22).padding(.trailing)
 			}
 			)
-		}.sheet(isPresented: $showAddProductSheet) {
-			AddProductView()
 		}.partialSheet(presented: self.$viewModel.showAuthView, backgroundColor: Color("Blue"), handlerBarColor: Color.white, enableCover: true, coverColor: Color.black.opacity(0.8), view: {
 			VStack {
 				
@@ -194,9 +194,7 @@ struct ExploreView: View {
 					}.padding(.horizontal).padding(.vertical, 5.0).background(Color.white).cornerRadius(10.0)
 				}
 			}
-		}).sheet(isPresented: self.$viewModel.showProfileView) {
-			ProfileView(showProfileView: self.$viewModel.showProfileView)
-		}.showSearchSheet(presented: self.$shiftUpSearchBar) {
+		}).showSearchSheet(presented: self.$shiftUpSearchBar) {
 			VStack {
 				VStack {
 					HStack {
@@ -238,6 +236,8 @@ struct ExploreView: View {
 				Spacer()
 			}
 			
+		}.sheet(isPresented: self.$viewModel.showProfileView) {
+			ProfileView(showProfileView: self.$viewModel.showProfileView)
 		}
 	}
 }
@@ -341,6 +341,18 @@ class ExploreViewModel: NSObject, ObservableObject, GIDSignInDelegate {
 			}
 		}
 	}
+	
+	@Published var attemptToAddProduct = false {
+		didSet {
+			if Auth.auth().currentUser != nil && attemptToAddProduct == true {
+				self.showAddProductView = true
+			} else {
+				self.showAuthView = true
+			}
+		}
+	}
+	
+	@Published var showAddProductView: Bool = false
 		
 	@Published var showProfileView: Bool = false
 	@Published var showAuthView: Bool = false
