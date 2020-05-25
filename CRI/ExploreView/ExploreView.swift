@@ -28,7 +28,7 @@ struct ExploreView: View {
 	@State var shiftUpSearchBar = false
 	
 	@State var searchBarOffset: CGFloat = 0.0
-	
+					
 	var socialLogin = SocialLogin()
 	
 		
@@ -46,7 +46,6 @@ struct ExploreView: View {
 				
 				VStack(alignment: .leading) {
 
-					
 					if self.shiftUpSearchBar {
 
 						VStack(alignment: .center) {
@@ -119,9 +118,9 @@ struct ExploreView: View {
 						CategoryPickerView(selectedCategory: $selectedCategoryStore.selectedCategory).padding().padding(.horizontal, 4.0)
 									
 						List {
-							ForEach(0..<self.selectedCategoryStore.sections.count, id: \.self) { section in
+							ForEach(self.selectedCategoryStore.sections, id: \.self) { section in
 								Section(header: HStack {
-									Text("\(self.selectedCategoryStore.sections[section])".capitalized)
+									Text("\(section)".capitalized)
 										.font(Font.custom("AirbnbCerealApp-Black", size: 22.0))
 										.foregroundColor(.black)
 										.padding()
@@ -130,8 +129,10 @@ struct ExploreView: View {
 								) {
 									ScrollView(.horizontal, showsIndicators: false) {
 										HStack(alignment: .center, spacing: 25.0) {
-											ForEach(self.selectedCategoryStore.rows(section: section), id: \.self) { product in
-												ProductCardCell(product: product).frame(width: 160, height: 230, alignment: .center)
+											ForEach(self.selectedCategoryStore.rows(section: section), id: \.id) { product in
+												NavigationLink(destination: ProductDetailView(product: product)) {
+													ProductCardCell(product: product).frame(width: 160, height: 230, alignment: .center)
+												}.buttonStyle(PlainButtonStyle())
 											}
 										}.frame(height: 230)
 									}
@@ -257,6 +258,8 @@ class SelectedCategoryStore: ObservableObject {
 		}}
 	
     func rows(section: Int) -> [Product] { loadedProducts[sections[section]]! }
+	
+	func rows(section: String) -> [Product] { loadedProducts[section]!}
 
 	private func fetchProductsFromFirebase(selectedCategory: String) {
 		var products = [Product]()

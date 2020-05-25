@@ -19,11 +19,15 @@ struct ImageView: View {
 
     var body: some View {
         VStack {
-            Image(uiImage: image)
-                .resizable()
-                .aspectRatio(contentMode: .fill)
-				.clipped()
-				.background(Color.white)
+			GeometryReader { (geometry) in
+				Image(uiImage: self.image)
+                	.resizable()
+					.aspectRatio(geometry.size, contentMode: .fill)
+					.clipped()
+					.background(Color.white)
+			}
+			
+            
         }.onReceive(imageLoader.didChange) { data in
             self.image = UIImage(data: data) ?? UIImage()
         }

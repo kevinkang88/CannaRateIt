@@ -54,6 +54,7 @@
 		B48961E0243FD37F00DA988F /* AirbnbCereal-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B48961DA243FD37F00DA988F /* AirbnbCereal-Light.ttf */; };
 		B48961E22440A1AF00DA988F /* icons8-user.pdf in Resources */ = {isa = PBXBuildFile; fileRef = B48961E12440A1AF00DA988F /* icons8-user.pdf */; };
 		B49032692426602300A09CB3 /* CategoryPickerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B49032682426602300A09CB3 /* CategoryPickerCell.swift */; };
+		B4A23E6A246713100042E7D3 /* ProductDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4A23E69246713100042E7D3 /* ProductDetailView.swift */; };
 		B4D10E8D2454203400C3B813 /* Fuzzy in Frameworks */ = {isa = PBXBuildFile; productRef = B4D10E8C2454203400C3B813 /* Fuzzy */; };
 		C5D88415C22B89CA5FA7FE61 /* Pods_CRITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50D317EFD27A8BF7AABE682E /* Pods_CRITests.framework */; };
 		DF7DB357FC603DAF37EF85C8 /* Pods_CRI_CRIUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6FAE57C5A1AB001D277D3BC5 /* Pods_CRI_CRIUITests.framework */; };
@@ -135,6 +136,7 @@
 		B48961DA243FD37F00DA988F /* AirbnbCereal-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "AirbnbCereal-Light.ttf"; sourceTree = "<group>"; };
 		B48961E12440A1AF00DA988F /* icons8-user.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "icons8-user.pdf"; sourceTree = "<group>"; };
 		B49032682426602300A09CB3 /* CategoryPickerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryPickerCell.swift; sourceTree = "<group>"; };
+		B4A23E69246713100042E7D3 /* ProductDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailView.swift; sourceTree = "<group>"; };
 		C493C79EC9ACEABE26F758A0 /* Pods-CRI-CRIUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CRI-CRIUITests.debug.xcconfig"; path = "Target Support Files/Pods-CRI-CRIUITests/Pods-CRI-CRIUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		E216E0F496FEAA00388A40C0 /* Pods-CRI.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CRI.release.xcconfig"; path = "Target Support Files/Pods-CRI/Pods-CRI.release.xcconfig"; sourceTree = "<group>"; };
 		F662FBBC5F8EA91DA6588ACC /* Pods-CRITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CRITests.debug.xcconfig"; path = "Target Support Files/Pods-CRITests/Pods-CRITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -249,6 +251,7 @@
 		B47B07F324225A200046ACF2 /* CRI */ = {
 			isa = PBXGroup;
 			children = (
+				B4A23E68246712F90042E7D3 /* Product Detail View */,
 				B43B672024479862009ADCAE /* SearchView */,
 				B47F8C992442ADB2008961F5 /* CRI.entitlements */,
 				B43CAC8E243CF281000B84FA /* Add Product */,
@@ -363,6 +366,14 @@
 				B4466480242FF664003F79CC /* CategoryPickerView.swift */,
 			);
 			path = CategoryPicker;
+			sourceTree = "<group>";
+		};
+		B4A23E68246712F90042E7D3 /* Product Detail View */ = {
+			isa = PBXGroup;
+			children = (
+				B4A23E69246713100042E7D3 /* ProductDetailView.swift */,
+			);
+			path = "Product Detail View";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -682,6 +693,7 @@
 				B48961C1243DE31500DA988F /* ImagePicker.swift in Sources */,
 				B43B672424479936009ADCAE /* SearchSheet.swift in Sources */,
 				B4466481242FF664003F79CC /* CategoryPickerView.swift in Sources */,
+				B4A23E6A246713100042E7D3 /* ProductDetailView.swift in Sources */,
 				B47F8C9D24434E98008961F5 /* AuthenticationService.swift in Sources */,
 				B43B672224479898009ADCAE /* SearchSheetViewModifier.swift in Sources */,
 				B44136D8243A2C9D00F3C1C4 /* Product.swift in Sources */,
