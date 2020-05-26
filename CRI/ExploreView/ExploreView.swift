@@ -22,9 +22,7 @@ struct ExploreView: View {
     @ObservedObject var selectedCategoryStore = SelectedCategoryStore()
 	
     @ObservedObject var viewModel = ExploreViewModel()
-	
-	@State var showAddProductSheet = false
-	
+		
 	@State var shiftUpSearchBar = false
 	
 	@State var searchBarOffset: CGFloat = 0.0
