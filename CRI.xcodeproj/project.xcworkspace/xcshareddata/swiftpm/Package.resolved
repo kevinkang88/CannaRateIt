@@ -1,0 +1,25 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "Fuzzy",
+        "repositoryURL": "https://github.com/khoi/fuzzy-swift",
+        "state": {
+          "branch": null,
+          "revision": "48d0ddb4c226e8a28a8f905fa0549ee6f90954fc",
+          "version": "0.1.0"
+        }
+      },
+      {
+        "package": "PartialSheet",
+        "repositoryURL": "https://github.com/AndreaMiotto/PartialSheet",
+        "state": {
+          "branch": null,
+          "revision": "cda3be6f769ec89c48b17317a598ef186c95ca5c",
+          "version": "0.1.0"
+        }
+      }
+    ]
+  },
+  "version": 1
+}

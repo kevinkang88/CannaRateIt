@@ -27,8 +27,16 @@ struct ProfileView: View {
 			Button(action: {
 				self.signOutTriggered = true
 			}) {
-				Text("sign out")
-			}
+                HStack {
+                    Text("Sign out")
+                        .font(Font.custom("AirbnbCerealApp-Medium", size: 16.0))
+                }
+                .frame(minWidth: 0, maxWidth: .infinity)
+                .padding()
+                .foregroundColor(.white)
+				.background(Color.red.opacity(0.7))
+                .cornerRadius(20)
+                .padding(.horizontal, 20)			}
 		}
         
     }
@@ -42,9 +50,3 @@ struct ProfileView: View {
 		}
 	}
 }
-//
-//struct ProfileView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        ProfileView()
-//    }
-//}

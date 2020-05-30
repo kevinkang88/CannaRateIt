@@ -372,7 +372,7 @@ class ExploreViewModel: NSObject, ObservableObject, GIDSignInDelegate {
 					let id = doc.document.documentID
 					let name = doc.document.data()["name"] as! String
 					let brand = doc.document.data()["brand"] as! String
-					let category = Product.Category(rawValue: doc.document.data()["category"] as! String) as! Product.Category
+  					let category = Product.Category(rawValue: doc.document.data()["category"] as! String) as! Product.Category
 					let mainIngredient = Product.MainIngredient(rawValue: doc.document.data()["mainIngredient"] as! String) as! Product.MainIngredient
 					let isTrending = doc.document.data()["isTrending"] as! Bool
 					let averageRating = doc.document.data()["averageRating"] as! Float
