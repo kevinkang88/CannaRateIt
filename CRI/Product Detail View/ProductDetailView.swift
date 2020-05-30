@@ -89,6 +89,14 @@ struct ProductDetailView: View {
 					Spacer()
 				}
 				
+				VStack {
+					ForEach(self.viewModel.reviews, id: \.self) { review in
+						HStack {
+							Image("anon-user")
+							Text(review.reviewText)
+						}
+					}
+				}
 				
 				Spacer()
 			}.background(Color.white).frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height / 2).cornerRadius(30.0, corners: .allCorners).offset(y: UIScreen.main.bounds.height / 2.5)
@@ -97,6 +105,29 @@ struct ProductDetailView: View {
 		}.navigationBarTitle("") //this must be empty
 		.navigationBarHidden(true)
 		.navigationBarBackButtonHidden(true).frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
+		.onAppear(perform: {
+			var reviews = [Review]()
+			let query = Firestore.firestore().collection("reviews").whereField("productID", isEqualTo: self.product.id)
+			
+			query.getDocuments { snap, err in
+				if err != nil {
+					print(err?.localizedDescription)
+					return
+				}
+				
+				for doc in (snap?.documentChanges)! {
+					let id = doc.document.documentID
+					let productID = doc.document.data()["productID"] as! String
+					let userID = doc.document.data()["userID"] as! String
+					let reviewText = doc.document.data()["reviewText"] as! String
+					let rating = doc.document.data()["rating"] as! Float
+					
+					reviews.append(Review(id: id, userID: userID, productID: productID, rating: rating, reviewText: reviewText))
+				}
+				
+				self.viewModel.reviews = reviews
+			}
+		})
 		.partialSheet(presented: self.$viewModel.showAuthView, backgroundColor: Color("Blue"), handlerBarColor: Color.white, enableCover: true, coverColor: Color.black.opacity(0.8), view: {
 			VStack {
 				
@@ -142,6 +173,7 @@ class ProductDetailViewModel: NSObject, ObservableObject, GIDSignInDelegate {
 	
 	@Published var showAuthView = false
 	
+	@Published var reviews = [Review]()
 	
 	@Published var attemptAddReview = false {
 		didSet {
