@@ -40,9 +40,7 @@ struct ProductDetailView: View {
 						 self.presentation.wrappedValue.dismiss()
 					}) {
 						Image("back-icon").renderingMode(.template).resizable().frame(width: 50, height: 50, alignment: .center).foregroundColor(Color.black)
-					}.offset(y: 30.0).sheet(isPresented: self.$viewModel.showAddReviewView) {
-						AddReview()
-					}
+					}.offset(y: 30.0)
 				}
 				
 				Spacer()
@@ -84,6 +82,8 @@ struct ProductDetailView: View {
 						self.viewModel.attemptAddReview = true
 					}) {
 						Image("plus").resizable().renderingMode(.template).frame(width: 30.0, height: 30.0).foregroundColor(Color.black).padding(.top)
+					}.sheet(isPresented: self.$viewModel.showAddReviewView) {
+						AddReview(productID: self.product.id ?? "", dataStore: AddReviewFormDataStore.shared, isVisible: self.$viewModel.showAddReviewView)
 					}
 					
 					Spacer()
