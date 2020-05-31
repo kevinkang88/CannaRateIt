@@ -25,6 +25,8 @@ struct ProductDetailView: View {
 		
 	@ObservedObject var viewModel: ProductDetailViewModel = ProductDetailViewModel()
 	
+    @State var showsAlert = false
+	
 	init(product: Product) {
 		self.product = product
 	}
@@ -36,11 +38,20 @@ struct ProductDetailView: View {
 					ImageView(withURL: "products/\(product.id ?? "").jpeg").frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height / 1.8, alignment: .center)
 								.edgesIgnoringSafeArea(.top)
 					
-					Button(action: {
-						 self.presentation.wrappedValue.dismiss()
-					}) {
-						Image("back-icon").renderingMode(.template).resizable().frame(width: 50, height: 50, alignment: .center).foregroundColor(Color.black)
-					}
+					HStack {
+						Button(action: {
+							 self.presentation.wrappedValue.dismiss()
+						}) {
+							Image("back-icon").renderingMode(.template).resizable().frame(width: 50, height: 50, alignment: .center).foregroundColor(Color.black)
+						}
+						Spacer()
+						Button(action: {
+							 self.showsAlert = true
+						}) {
+							Image("viewmore-icon").renderingMode(.template).resizable().frame(width: 50, height: 50, alignment: .center).foregroundColor(Color.black)
+						}
+					}.padding(.horizontal)
+					
 				}
 				
 				Spacer()
@@ -98,6 +109,9 @@ struct ProductDetailView: View {
 							Text(review.reviewText).font(Font.custom("AirbnbCerealApp-Medium", size: 14.0)).lineLimit(nil)
 							.foregroundColor(Color.black)
 							Spacer()
+							Image("viewmorecell-icon").renderingMode(.template).resizable().scaledToFit().frame(width: 20.0, height: 20.0).foregroundColor(Color.black.opacity(0.8)).onTapGesture {
+								self.showsAlert = true
+							}.padding(.trailing)
 						}.padding(.vertical)
 					}
 				}
@@ -161,7 +175,9 @@ struct ProductDetailView: View {
 					}.padding(.horizontal).padding(.vertical, 5.0).background(Color.white).cornerRadius(10.0)
 				}
 			}
-		})
+		}).alert(isPresented: self.$showsAlert) {
+			Alert(title: Text("Report this content?"), message: Text(""), primaryButton: .default(Text("Report")), secondaryButton: .cancel())
+		}
 		
 	}
 }
