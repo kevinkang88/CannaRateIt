@@ -128,7 +128,7 @@ struct ProductDetailView: View {
 				self.viewModel.reviews = reviews
 			}
 		})
-		.partialSheet(presented: self.$viewModel.showAuthView, backgroundColor: Color("Blue"), handlerBarColor: Color.white, enableCover: true, coverColor: Color.black.opacity(0.8), view: {
+		.partialSheet(presented: self.$viewModel.showAuthView, backgroundColor: Color("OceanBlue"), handlerBarColor: Color.white, enableCover: true, coverColor: Color.black.opacity(0.8), view: {
 			VStack {
 				
 				Button(action: {

@@ -17,7 +17,7 @@ struct Stars: View {
 	
     var body: some View {
 		HStack(spacing: 0) {
-			ForEach((1...count), id: \.self) { index in
+			ForEach((0...count), id: \.self) { index in
 				Image("star").resizable().renderingMode(.template).frame(width: 20, height: 20, alignment: .center).foregroundColor(.yellow)
 			}
 		}.accentColor(.yellow)

@@ -10,11 +10,11 @@ import SwiftUI
 
 struct CategoryPickerView: View {
 	
-	let categories: [Category] = [Category(iconName: "drops-category", categoryName: "drop"),
-								  	Category(iconName: "vapes-category", categoryName: "vapes"),
-									Category(iconName: "edibles-category", categoryName: "edible"),
-								  	Category(iconName: "pets-category", categoryName: "pet"),
-								  	Category(iconName: "topicals-category", categoryName: "topicals")]
+	let categories: [Category] = [Category(iconName: "drop-category", categoryName: "drop"),
+								  	Category(iconName: "vape-category", categoryName: "vape"),
+									Category(iconName: "edible-category", categoryName: "edible"),
+								  	Category(iconName: "pet-category", categoryName: "pet"),
+								  	Category(iconName: "topical-category", categoryName: "topical")]
 	
     @Binding var selectedCategory: String
 	

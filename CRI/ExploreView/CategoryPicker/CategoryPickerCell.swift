@@ -29,8 +29,8 @@ struct CategoryPickerCell: View {
     var body: some View {
 		VStack(alignment: .center) {
 			if self._selectedCategory.wrappedValue == self.categoryName {
-				Image(self.iconName).renderingMode(.template).resizable().frame(width: Constants.cellWidth, height: Constants.cellWidth, alignment: .center).foregroundColor(Color("Blue")).overlay(RoundedRectangle(cornerRadius: 10).stroke(Color("Blue"), lineWidth: 2))
-				Text(self.categoryName.capitalized).font(Font.custom("AirbnbCerealApp-Light", size: 10.0)).foregroundColor(Color("Blue"))
+				Image(self.iconName).renderingMode(.template).resizable().frame(width: Constants.cellWidth, height: Constants.cellWidth, alignment: .center).foregroundColor(Color("OceanBlue")).overlay(RoundedRectangle(cornerRadius: 10).stroke(Color("OceanBlue"), lineWidth: 2))
+				Text(self.categoryName.capitalized).font(Font.custom("AirbnbCerealApp-Light", size: 10.0)).foregroundColor(Color("OceanBlue"))
 			} else {
 				Image(self.iconName).renderingMode(.template).resizable().frame(width: Constants.cellWidth, height: Constants.cellWidth, alignment: .center).foregroundColor(Color.black.opacity(0.6)).overlay(RoundedRectangle(cornerRadius: 10).stroke(Color.black.opacity(0.6), lineWidth: 2))
 				Text(self.categoryName.capitalized).font(Font.custom("AirbnbCerealApp-Light", size: 10.0))

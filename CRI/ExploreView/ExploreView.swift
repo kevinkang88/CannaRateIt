@@ -52,7 +52,7 @@ struct ExploreView: View {
 								Spacer()
 								VStack {
 									Image("search").renderingMode(.template).resizable().frame(width: 20, height: 20).foregroundColor(Color.white).padding()
-								}.frame(width: 65, height: 65).background(Color("Blue"))
+								}.frame(width: 65, height: 65).background(Color("OceanBlue"))
 							}.frame(width: UIScreen.main.bounds.width - 30.0, height: 65).background(Color.gray.opacity(0.2)).cornerRadius(15).offset(y: self.searchBarOffset)
 						}.padding(.horizontal, 15.0).onTapGesture {
 							withAnimation(.easeIn) {
@@ -90,7 +90,7 @@ struct ExploreView: View {
 								Spacer()
 								VStack {
 									Image("search").renderingMode(.template).resizable().frame(width: 20, height: 20).foregroundColor(Color.white).padding()
-								}.frame(width: 65, height: 65).background(Color("Blue"))
+								}.frame(width: 65, height: 65).background(Color("OceanBlue"))
 							}.frame(width: UIScreen.main.bounds.width - 30.0, height: 65).background(Color.gray.opacity(0.2)).cornerRadius(15).offset(y: self.searchBarOffset)
 						}.padding(.horizontal, 15.0).padding(.top).onTapGesture {
 							withAnimation(.easeIn) {
@@ -135,10 +135,12 @@ struct ExploreView: View {
 				Button(action: {
 					self.viewModel.attemptToAddProduct = true
 				}) {
-					Image("plus").resizable().renderingMode(.template).foregroundColor(Color("Blue"))
-				}.frame(width: 60, height: 60, alignment: .center).padding().sheet(isPresented: self.$viewModel.showAddProductView) {
-					AddProductView()
-				}
+					Image("plus").resizable().renderingMode(.template).foregroundColor(Color("OceanBlue"))
+				}.frame(width: 60, height: 60, alignment: .center)
+					.padding()
+					.sheet(isPresented: self.$viewModel.showAddProductView) {
+						AddProductView(isVisible: self.$viewModel.showAddProductView)
+					}
 				
 			}.onAppear {
 				self.selectedCategoryStore.selectedCategory = "edible"
@@ -152,7 +154,7 @@ struct ExploreView: View {
 					}.frame(width: 44.0, height: 44.0).background(Color.gray.opacity(0.2)).cornerRadius(22).padding(.trailing)
 			}
 			)
-		}.partialSheet(presented: self.$viewModel.showAuthView, backgroundColor: Color("Blue"), handlerBarColor: Color.white, enableCover: true, coverColor: Color.black.opacity(0.8), view: {
+		}.partialSheet(presented: self.$viewModel.showAuthView, backgroundColor: Color("OceanBlue"), handlerBarColor: Color.white, enableCover: true, coverColor: Color.black.opacity(0.8), view: {
 			VStack {
 				
 				Button(action: {
@@ -191,7 +193,7 @@ struct ExploreView: View {
 							Image("search").renderingMode(.template).resizable().frame(width: 20, height: 20).foregroundColor(Color.white).padding()
 						}.onTapGesture {
 							self.viewModel.search(searchQuery: self.viewModel.searchedText)
-						}.frame(width: 65, height: 65).background(Color("Blue"))
+						}.frame(width: 65, height: 65).background(Color("OceanBlue"))
 					}.frame(width: UIScreen.main.bounds.width - 30.0, height: 65).background(Color.gray.opacity(0.2)).cornerRadius(15).offset(y: self.searchBarOffset)
 				}.padding(.horizontal, 15.0)
 				

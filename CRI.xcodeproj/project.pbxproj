@@ -54,6 +54,7 @@
 		B48961DF243FD37F00DA988F /* AirbnbCereal-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B48961D9243FD37F00DA988F /* AirbnbCereal-ExtraBold.ttf */; };
 		B48961E0243FD37F00DA988F /* AirbnbCereal-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B48961DA243FD37F00DA988F /* AirbnbCereal-Light.ttf */; };
 		B48961E22440A1AF00DA988F /* icons8-user.pdf in Resources */ = {isa = PBXBuildFile; fileRef = B48961E12440A1AF00DA988F /* icons8-user.pdf */; };
+		B48FFB912483E9030049B6E3 /* CategoryPickerWheel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B48FFB902483E9030049B6E3 /* CategoryPickerWheel.swift */; };
 		B49032692426602300A09CB3 /* CategoryPickerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B49032682426602300A09CB3 /* CategoryPickerCell.swift */; };
 		B4A23E6A246713100042E7D3 /* ProductDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4A23E69246713100042E7D3 /* ProductDetailView.swift */; };
 		B4D10E8D2454203400C3B813 /* Fuzzy in Frameworks */ = {isa = PBXBuildFile; productRef = B4D10E8C2454203400C3B813 /* Fuzzy */; };
@@ -138,6 +139,7 @@
 		B48961D9243FD37F00DA988F /* AirbnbCereal-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "AirbnbCereal-ExtraBold.ttf"; sourceTree = "<group>"; };
 		B48961DA243FD37F00DA988F /* AirbnbCereal-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "AirbnbCereal-Light.ttf"; sourceTree = "<group>"; };
 		B48961E12440A1AF00DA988F /* icons8-user.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "icons8-user.pdf"; sourceTree = "<group>"; };
+		B48FFB902483E9030049B6E3 /* CategoryPickerWheel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryPickerWheel.swift; sourceTree = "<group>"; };
 		B49032682426602300A09CB3 /* CategoryPickerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryPickerCell.swift; sourceTree = "<group>"; };
 		B4A23E69246713100042E7D3 /* ProductDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailView.swift; sourceTree = "<group>"; };
 		B4F6D64B2482D84100D6DDB0 /* Review.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Review.swift; sourceTree = "<group>"; };
@@ -214,6 +216,7 @@
 			children = (
 				B43CAC8F243CF296000B84FA /* AddProductView.swift */,
 				B48961C0243DE31500DA988F /* ImagePicker.swift */,
+				B48FFB902483E9030049B6E3 /* CategoryPickerWheel.swift */,
 			);
 			path = "Add Product";
 			sourceTree = "<group>";
@@ -720,6 +723,7 @@
 				B47F8C9D24434E98008961F5 /* AuthenticationService.swift in Sources */,
 				B43B672224479898009ADCAE /* SearchSheetViewModifier.swift in Sources */,
 				B4F6D64C2482D84100D6DDB0 /* Review.swift in Sources */,
+				B48FFB912483E9030049B6E3 /* CategoryPickerWheel.swift in Sources */,
 				B44136D8243A2C9D00F3C1C4 /* Product.swift in Sources */,
 				B47F8CA12443BEDC008961F5 /* AnonProfileButton.swift in Sources */,
 				B42F70E5244AB55500A7AD23 /* CustomTextField.swift in Sources */,
