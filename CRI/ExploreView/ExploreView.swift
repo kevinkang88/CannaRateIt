@@ -58,7 +58,7 @@ struct ExploreView: View {
 							withAnimation(.easeIn) {
 								self.shiftUpSearchBar = false
 							}
-						}.padding(.top, 40.0)
+						}.padding(.top, 40.0).padding(.bottom)
 						
 						HStack {
 							Spacer()
@@ -70,11 +70,6 @@ struct ExploreView: View {
 									}.frame(width: 44.0, height: 44.0).background(Color.gray.opacity(0.2)).cornerRadius(22).padding(.trailing)
 							}
 						}
-						
-						VStack(alignment: .leading) {
-							Text("Explore").font(Font.custom("AirbnbCerealApp-ExtraBold", size: 26.0))
-							Text("CBD Products!").font(Font.custom("AirbnbCerealApp-Black", size: 26.0))
-						}.padding(.horizontal).zIndex(1.0)
 						
 					} else {
 						
@@ -87,12 +82,7 @@ struct ExploreView: View {
 									Image("anon-user").renderingMode(.template).resizable().frame(width: 30.0, height: 30.0).foregroundColor(Color.gray.opacity(0.3))
 									}.frame(width: 44.0, height: 44.0).background(Color.gray.opacity(0.2)).cornerRadius(22).padding(.trailing)
 							}
-						}.padding(.top, 40.0)
-						
-						VStack(alignment: .leading) {
-							Text("Explore").font(Font.custom("AirbnbCerealApp-ExtraBold", size: 26.0))
-							Text("CBD Products!").font(Font.custom("AirbnbCerealApp-Black", size: 26.0))
-						}.padding(.horizontal).zIndex(1.0)
+						}.padding(.top, 40.0).padding(.bottom)
 						
 						VStack(alignment: .center) {
 							HStack {
@@ -102,24 +92,23 @@ struct ExploreView: View {
 									Image("search").renderingMode(.template).resizable().frame(width: 20, height: 20).foregroundColor(Color.white).padding()
 								}.frame(width: 65, height: 65).background(Color("Blue"))
 							}.frame(width: UIScreen.main.bounds.width - 30.0, height: 65).background(Color.gray.opacity(0.2)).cornerRadius(15).offset(y: self.searchBarOffset)
-						}.padding(.horizontal, 15.0).onTapGesture {
+						}.padding(.horizontal, 15.0).padding(.top).onTapGesture {
 							withAnimation(.easeIn) {
 								self.shiftUpSearchBar = true
 							}
 						}
 					}
 
-					
-					Spacer().frame(height: 1)
-					
 					VStack(alignment: .leading) {
-						CategoryPickerView(selectedCategory: $selectedCategoryStore.selectedCategory).padding().padding(.horizontal, 4.0)
+						CategoryPickerView(selectedCategory: $selectedCategoryStore.selectedCategory).padding()
+						
+						Divider().padding(.horizontal).padding(.bottom)
 									
 						List {
 							ForEach(self.selectedCategoryStore.sections, id: \.self) { section in
 								Section(header: HStack {
-									Text("\(section)".capitalized)
-										.font(Font.custom("AirbnbCerealApp-Black", size: 22.0))
+									Text("\(section)".capitalized).tracking(2)
+										.font(Font.custom("AirbnbCerealApp-Light", size: 20.0))
 										.foregroundColor(.black)
 										.padding()
 										Spacer()
