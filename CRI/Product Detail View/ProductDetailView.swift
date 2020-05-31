@@ -40,7 +40,7 @@ struct ProductDetailView: View {
 						 self.presentation.wrappedValue.dismiss()
 					}) {
 						Image("back-icon").renderingMode(.template).resizable().frame(width: 50, height: 50, alignment: .center).foregroundColor(Color.black)
-					}.offset(y: 30.0)
+					}
 				}
 				
 				Spacer()
@@ -77,7 +77,7 @@ struct ProductDetailView: View {
 				}.padding(.leading)
 				
 				HStack {
-					Text("Reviews").font(Font.custom("AirbnbCerealApp-Medium", size: 24.0)).foregroundColor(Color.black).padding(.leading).padding(.top)
+					Text("Reviews").font(Font.custom("AirbnbCerealApp-Medium", size: 20.0)).foregroundColor(Color.black).padding(.leading).padding(.top)
 					Button(action: {
 						self.viewModel.attemptAddReview = true
 					}) {
@@ -89,22 +89,26 @@ struct ProductDetailView: View {
 					Spacer()
 				}
 				
-				VStack {
+				VStack(alignment: .leading) {
 					ForEach(self.viewModel.reviews, id: \.self) { review in
 						HStack {
-							Image("anon-user")
-							Text(review.reviewText)
-						}
+							ZStack {
+								Image("anon-user").renderingMode(.template).resizable().frame(width: 30.0, height: 30.0).foregroundColor(Color.gray.opacity(0.3))
+							}.frame(width: 44.0, height: 44.0).background(Color.gray.opacity(0.2)).cornerRadius(22).padding(.horizontal)
+							Text(review.reviewText).font(Font.custom("AirbnbCerealApp-Medium", size: 14.0)).lineLimit(nil)
+							.foregroundColor(Color.black)
+							Spacer()
+						}.padding(.vertical)
 					}
 				}
 				
 				Spacer()
-			}.background(Color.white).frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height / 2).cornerRadius(30.0, corners: .allCorners).offset(y: UIScreen.main.bounds.height / 2.5)
+			}.background(Color.white).frame(width: UIScreen.main.bounds.width, height: (UIScreen.main.bounds.height / 2) + 80).cornerRadius(30.0, corners: .allCorners).offset(y: (UIScreen.main.bounds.height / 2) - 80).zIndex(99)
 			
 			
-		}.navigationBarTitle("") //this must be empty
+		}.navigationBarTitle("")
 		.navigationBarHidden(true)
-		.navigationBarBackButtonHidden(true).frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
+		.navigationBarBackButtonHidden(true)
 		.onAppear(perform: {
 			var reviews = [Review]()
 			let query = Firestore.firestore().collection("reviews").whereField("productID", isEqualTo: self.product.id)

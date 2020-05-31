@@ -25,7 +25,7 @@ struct AddProductView: View {
 	@ObservedObject var addProductFormDataStore = AddProductFormDataStore()
 	
 	@State var showImagePicker = false
-	
+		
     var body: some View {
 			ScrollView {
 				
@@ -141,7 +141,13 @@ struct AddProductView: View {
 class AddProductFormDataStore: ObservableObject {
 	@Published var productName: String = ""
 	@Published var brandName: String = ""
-	@Published var selectedCategoryIndex: Int = 0
+	@Published var selectedCategoryIndex: Int = 0 {
+		didSet {
+			if oldValue != selectedCategoryIndex {
+				showCategoryPicker = false
+			}
+		}
+	}
 	@Published var rating: Float = 0.0
 	@Published var image: UIImage? = nil
 	
