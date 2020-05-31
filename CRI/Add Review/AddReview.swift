@@ -21,8 +21,19 @@ struct AddReview: View {
 				
     var body: some View {
 		VStack {
-			MultilineTextView(text: self.$dataStore.reviewText).frame(minHeight: 150, maxHeight: 150).border(Color.black, width: 1.0)
-			Stepper("Rating: \(String(format: "%.1f", self.dataStore.rating))", onIncrement: {
+			HStack {
+				Button(action: {
+					self.isVisible = false
+				}) {
+					Image("close-icon").renderingMode(.template).resizable().frame(width: 40, height: 40, alignment: .center).foregroundColor(Color.black)
+				}.padding(.vertical)
+				
+				Spacer()
+			}
+			
+			MultilineTextView(text: self.$dataStore.reviewText).frame(minHeight: 150, maxHeight: 150)
+			
+			Stepper(onIncrement: {
 				if self.dataStore.rating <= 4.5 {
 					self.dataStore.rating += 0.5
 				}
@@ -30,22 +41,38 @@ struct AddReview: View {
 				if self.dataStore.rating >= 0.5 {
 					self.dataStore.rating -= 0.5
 				}
-			}).padding(.top)
+			}) {
+				Text("Rating: \(String(format: "%.1f", self.dataStore.rating))").font(Font.custom("AirbnbCerealApp-Medium", size: 12.0)).foregroundColor(Color.black.opacity(0.7))
+			}.padding(.leading).padding(.vertical).background(Color.gray.opacity(0.2)).cornerRadius(8)
+
+			
+			GeometryReader { geometry in
 			Button(action: {
 				self.dataStore.addReviewTooFirebase()
 				self.isVisible = false
+				
 			}) {
-				Text("submit")
-			}
+				Text("Submit").font(Font.custom("AirbnbCerealApp-Medium", size: 14.0))
+					.frame(width: geometry.size.width - 4,alignment: .center)
+				.padding(.vertical)
+				.foregroundColor(Color("OceanBlue"))
+				.overlay(
+					RoundedRectangle(cornerRadius: 8)
+					.stroke(Color("OceanBlue"), lineWidth: 3)).offset(x: 2)
+			}.disabled(self.dataStore.reviewText == "")
+			}.frame(maxHeight: 50.0, alignment: .center).padding(.vertical)
+			
+			
+			
 			Spacer()
 		}.onAppear {
 			self.dataStore.productID = self.productID
-		}
+		}.padding()
 	}
 }
 
 class AddReviewFormDataStore: ObservableObject {
-	@Published var reviewText: String = "review here yo" {
+	@Published var reviewText: String = "" {
 		didSet {
 			self.finalReviewText = self.reviewText
 			print(reviewText)
@@ -91,6 +118,10 @@ struct MultilineTextView: UIViewRepresentable {
         view.isScrollEnabled = true
         view.isEditable = true
         view.isUserInteractionEnabled = true
+		view.backgroundColor = UIColor.gray.withAlphaComponent(0.2)
+		view.layer.borderWidth = 0.0
+		view.layer.cornerRadius = 8.0
+		view.font = UIFont(name:"AirbnbCerealApp-Medium",size:14)
 		
         return view
     }
