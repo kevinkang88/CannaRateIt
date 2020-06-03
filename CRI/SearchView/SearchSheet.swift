@@ -17,26 +17,24 @@ struct SearchSheet<SheetContent>: ViewModifier where SheetContent: View {
 	
 	func body(content: Content) -> some View {
 		ZStack {
+			content
+			
 			if presented {
-				
+
 				Rectangle()
 					.foregroundColor(Color.black.opacity(0.9))
 					.edgesIgnoringSafeArea(.vertical)
-					.zIndex(3.0)
+					.zIndex(2.0)
 					.onTapGesture {
 						withAnimation(.easeIn) { 
 							self.presented = false
 						}
 				}
 	
-				
 				self.view().zIndex(4.0)
+				
 			}
 			
-			content
-			
-
-
 		}
 	}
 }

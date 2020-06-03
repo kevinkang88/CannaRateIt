@@ -108,6 +108,7 @@ struct AddProductView: View {
 					GeometryReader { geometry in
 						Button(action: {
 							self.addProductFormDataStore.addProductToFirebase()
+							self.isVisible = false
 						}) {
 							Text("Create").font(Font.custom("AirbnbCerealApp-Medium", size: 14.0))
 								.frame(width: geometry.size.width - 4,alignment: .center)

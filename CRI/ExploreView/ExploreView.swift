@@ -26,7 +26,7 @@ struct ExploreView: View {
 	@State var shiftUpSearchBar = false
 	
 	@State var searchBarOffset: CGFloat = 0.0
-					
+						
 	var socialLogin = SocialLogin()
 	
 		
@@ -143,7 +143,12 @@ struct ExploreView: View {
 					}
 				
 			}.onAppear {
-				self.selectedCategoryStore.selectedCategory = "edible"
+				if self.selectedCategoryStore.selectedCategory == "" {
+					self.selectedCategoryStore.selectedCategory = "drop"
+				} else {
+					self.selectedCategoryStore.fetchProductsFromFirebase(selectedCategory: self.selectedCategoryStore.selectedCategory)
+				}
+				
 				}.edgesIgnoringSafeArea(.all).navigationBarHidden(true)
 				.navigationBarItems(trailing:
 			Button(action: {
@@ -200,8 +205,10 @@ struct ExploreView: View {
 				Spacer().frame(height: 20)
 				
 				VStack(alignment: .leading) {
-					ForEach(self.$viewModel.searchResults.wrappedValue, id: \.self) { product in
+					ForEach(self.$viewModel.searchResults.wrappedValue, id: \.id) { product in
 						VStack {
+							
+							
 							HStack {
 								Text(product.name.capitalized)
 									.font(Font.custom("AirbnbCerealApp-Medium", size: 14.0))
@@ -215,7 +222,15 @@ struct ExploreView: View {
 									.foregroundColor(Color.white)
 									.padding()
 								Spacer()
+							}.onTapGesture {
+								self.viewModel.showProfileView = false
+								self.viewModel.showAddProductView = false
+								self.viewModel.selectedProduct = product
+								self.viewModel.showSheet = true
 							}
+								
+							
+							
 						
 						}.padding(.horizontal)
 						
@@ -224,9 +239,8 @@ struct ExploreView: View {
 				
 				Spacer()
 			}
-			
-		}.sheet(isPresented: self.$viewModel.showProfileView) {
-			ProfileView(showProfileView: self.$viewModel.showProfileView)
+		}.sheet(isPresented: self.$viewModel.showSheet) {
+			self.viewModel.shitSheet
 		}
 	}
 }
@@ -250,7 +264,7 @@ class SelectedCategoryStore: ObservableObject {
 	
 	func rows(section: String) -> [Product] { loadedProducts[section]!}
 
-	private func fetchProductsFromFirebase(selectedCategory: String) {
+	public func fetchProductsFromFirebase(selectedCategory: String) {
 		var products = [Product]()
 		let query = Firestore.firestore().collection("products").whereField("category", isEqualTo: self.selectedCategory)
 		query.getDocuments { snap, err in
@@ -325,6 +339,7 @@ class ExploreViewModel: NSObject, ObservableObject, GIDSignInDelegate {
 		didSet {
 			if Auth.auth().currentUser != nil && attemptToShowProfileView == true {
 				self.showProfileView = true
+				self.showSheet = true
 			} else {
 				self.showAuthView = true
 			}
@@ -345,6 +360,18 @@ class ExploreViewModel: NSObject, ObservableObject, GIDSignInDelegate {
 		
 	@Published var showProfileView: Bool = false
 	@Published var showAuthView: Bool = false
+	
+	@Published var showSheet: Bool = false
+	
+	var shitSheet: some View {
+		if showProfileView {
+			return AnyView(ProfileView())
+		} else {
+			return AnyView(ProductDetailView(product: self.selectedProduct))
+		}
+	}
+	
+	var selectedProduct: Product = Product(id: "", name: "", brand: "", category: .capsule, mainIngredient: .cbd, isTrending: false, averageRating: 0.0, lastUpdated: nil)
 	
 	// Search
 	@Published var searchedText: String = ""

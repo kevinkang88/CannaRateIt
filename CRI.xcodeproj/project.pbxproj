@@ -100,7 +100,7 @@
 		B446647E242FECBA003F79CC /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		B4466480242FF664003F79CC /* CategoryPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryPickerView.swift; sourceTree = "<group>"; };
 		B446DAD8247CD46C00DAA936 /* AddReview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddReview.swift; sourceTree = "<group>"; };
-		B47B07F124225A200046ACF2 /* CRI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CRI.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B47B07F124225A200046ACF2 /* CannaRateIt.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CannaRateIt.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B47B07F424225A200046ACF2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B47B07F624225A200046ACF2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		B47B07F824225A200046ACF2 /* ExploreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreView.swift; sourceTree = "<group>"; };
@@ -256,7 +256,7 @@
 		B47B07F224225A200046ACF2 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				B47B07F124225A200046ACF2 /* CRI.app */,
+				B47B07F124225A200046ACF2 /* CannaRateIt.app */,
 				B47B080724225A210046ACF2 /* CRITests.xctest */,
 				B47B081224225A210046ACF2 /* CRIUITests.xctest */,
 			);
@@ -425,7 +425,7 @@
 				B4D10E8C2454203400C3B813 /* Fuzzy */,
 			);
 			productName = CRI;
-			productReference = B47B07F124225A200046ACF2 /* CRI.app */;
+			productReference = B47B07F124225A200046ACF2 /* CannaRateIt.app */;
 			productType = "com.apple.product-type.application";
 		};
 		B47B080624225A210046ACF2 /* CRITests */ = {
@@ -904,7 +904,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.yooniverse.CannaRateIt;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = CannaRateIt;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -926,7 +926,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.yooniverse.CannaRateIt;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = CannaRateIt;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
