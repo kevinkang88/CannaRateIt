@@ -308,6 +308,7 @@ class AddProductFormDataStore: ObservableObject {
 											   "paranoidRating": self.paranoidRating,
 											   "dizzyRating": self.dizzyRating,
 											   "anxiousRating":self.anxiousRating,
+											   "isProductCreator": true,
 												"lastUpdated": Date()
 												]
 					Firestore.firestore().collection("reviews").addDocument(data: data) { error in

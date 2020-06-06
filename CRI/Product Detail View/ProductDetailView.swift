@@ -138,7 +138,7 @@ struct ProductDetailView: View {
 					let productID = doc.document.data()["productID"] as! String
 					let userID = doc.document.data()["userID"] as! String
 					let reviewText = doc.document.data()["reviewText"] as! String
-					let rating = doc.document.data()["rating"] as! Float
+					let rating = doc.document.data()["averageRating"] as! Float
 					
 					reviews.append(Review(id: id, userID: userID, productID: productID, rating: rating, reviewText: reviewText))
 				}
