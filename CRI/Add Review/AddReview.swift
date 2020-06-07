@@ -61,8 +61,6 @@ struct AddReview: View {
 			}.disabled(self.dataStore.reviewText == "")
 			}.frame(maxHeight: 50.0, alignment: .center).padding(.vertical)
 			
-			
-			
 			Spacer()
 		}.padding(.horizontal)
 		.onAppear {
@@ -201,7 +199,7 @@ class AddReviewFormDataStore: ObservableObject {
 										   "upliftedRating": self.upliftedRating,
 										   "creativeRating": self.creativeRating,
 										   "stressRating": self.stressRating,
-										   "anxietyRating": self.anxiousRating,
+										   "anxietyRating": self.anxietyRating,
 										   "depressionRating": self.depressionRating,
 										   "painRating": self.painRating,
 										   "insomniaRating": self.insomniaRating,
@@ -258,7 +256,6 @@ struct MultilineTextView: UIViewRepresentable {
 		 }
 
 		 func textViewDidChange(_ textView: UITextView) {
-			 print("text now: \(String(describing: textView.text!))")
 			self.parent.text = textView.text
 		 }
 	 }

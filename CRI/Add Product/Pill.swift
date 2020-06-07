@@ -62,7 +62,7 @@ struct Pill: View {
 							.background(self.selectedRating > 4 ? RoundedCorners(color: self.color, tl: 0, tr: 30, bl: 0, br: 30) : RoundedCorners(color: .white, tl: 0, tr: 30, bl: 0, br: 30))
 					}
 				}
-				Text("\(self.labelText) \(Int(self.selectedRating * 10))%").font(Font.custom("AirbnbCerealApp-Medium", size: 14.0)).foregroundColor(Color.black.opacity(0.3)).padding(.leading)
+				Text("\(self.labelText) \(Int(self.selectedRating / 5 * 100))%").font(Font.custom("AirbnbCerealApp-Medium", size: 14.0)).foregroundColor(Color.black.opacity(0.3)).padding(.leading)
 			}
 
 		}

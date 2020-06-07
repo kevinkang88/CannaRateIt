@@ -81,11 +81,37 @@ struct ProductDetailView: View {
 				HStack {
 					HStack {
 						Image("star").resizable().renderingMode(.template).frame(width: 16, height: 16, alignment: .center).foregroundColor(.white)
-						Text("4.0").font(Font.custom("AirbnbCerealApp-Medium", size: 14.0)).foregroundColor(Color.white)
+						Text(String(format: "%.2f", self.product.averageRating)).font(Font.custom("AirbnbCerealApp-Medium", size: 14.0)).foregroundColor(Color.white)
 					}.padding(.all, 8.0).background(Color.orange).cornerRadius(10.0, corners: .allCorners)
 					
 					Spacer()
 				}.padding(.leading)
+				
+				// add rating images here
+				
+				VStack(spacing: 20.0) {
+					Group {
+						BarGraph(titleLabel: "Happy", valueRatio: self.viewModel.averageHappyRating / 5.0, color: "Green")
+						BarGraph(titleLabel: "Euphoric", valueRatio: self.viewModel.averageEuphoricRating / 5.0, color: "Green")
+						BarGraph(titleLabel: "Relaxed", valueRatio: self.viewModel.averageRelaxedRating / 5.0, color: "Green")
+						BarGraph(titleLabel: "Uplifted", valueRatio: self.viewModel.averageUpliftedRating / 5.0, color: "Green")
+						BarGraph(titleLabel: "Creative", valueRatio: self.viewModel.averageCreativeRating / 5.0, color: "Green")
+					}
+					Group {
+						BarGraph(titleLabel: "Stress", valueRatio: self.viewModel.averageStressRating / 5.0, color: "Green")
+						BarGraph(titleLabel: "Anxiety", valueRatio: self.viewModel.averageAnxietyRating / 5.0, color: "Green")
+						BarGraph(titleLabel: "Depression", valueRatio: self.viewModel.averageDepressionRating / 5.0, color: "Green")
+						BarGraph(titleLabel: "Pain", valueRatio: self.viewModel.averagePainRating / 5.0, color: "Green")
+						BarGraph(titleLabel: "Insomnia", valueRatio: self.viewModel.averageInsomniaRating / 5.0, color: "Green")
+					}
+					Group {
+						BarGraph(titleLabel: "Dry mouth", valueRatio: self.viewModel.averageDrymouthRating / 5.0, color: "Red")
+						BarGraph(titleLabel: "Dry eyes", valueRatio: self.viewModel.averageDryeyesRating / 5.0, color: "Red")
+						BarGraph(titleLabel: "Paranoid", valueRatio: self.viewModel.averageParanoidRating / 5.0, color: "Red")
+						BarGraph(titleLabel: "Dizzy", valueRatio: self.viewModel.averageDizzyRating / 5.0, color: "Red")
+						BarGraph(titleLabel: "Anxious", valueRatio: self.viewModel.averageAnxiousRating / 5.0, color: "Red")
+					}
+				}.padding()
 				
 				HStack {
 					Text("Reviews").font(Font.custom("AirbnbCerealApp-Medium", size: 20.0)).foregroundColor(Color.black).padding(.leading).padding(.top)
@@ -138,12 +164,29 @@ struct ProductDetailView: View {
 					let productID = doc.document.data()["productID"] as! String
 					let userID = doc.document.data()["userID"] as! String
 					let reviewText = doc.document.data()["reviewText"] as! String
-					let rating = doc.document.data()["averageRating"] as! Float
+					let averageRating = doc.document.data()["averageRating"] as! Float
+					let anxietyRating = doc.document.data()["anxietyRating"] as! Float
+					let anxiousRating = doc.document.data()["anxiousRating"] as! Float
+					let creativeRating = doc.document.data()["creativeRating"] as! Float
+					let depressionRating = doc.document.data()["depressionRating"] as! Float
+					let dizzyRating = doc.document.data()["dizzyRating"] as! Float
+					let dryeyesRating = doc.document.data()["dryeyesRating"] as! Float
+					let drymouthRating = doc.document.data()["drymouthRating"] as! Float
+					let euphoricRating = doc.document.data()["euphoricRating"] as! Float
+					let happyRating = doc.document.data()["happyRating"] as! Float
+					let insomniaRating = doc.document.data()["insomniaRating"] as! Float
+					let painRating = doc.document.data()["painRating"] as! Float
+					let paranoidRating = doc.document.data()["paranoidRating"] as! Float
+					let relaxedRating = doc.document.data()["relaxedRating"] as! Float
+					let stressRating = doc.document.data()["stressRating"] as! Float
+					let upliftedRating = doc.document.data()["upliftedRating"] as! Float
 					
-					reviews.append(Review(id: id, userID: userID, productID: productID, rating: rating, reviewText: reviewText))
+					reviews.append(Review(id: id, userID: userID, productID: productID, averageRating: averageRating, reviewText: reviewText, anxietyRating: anxietyRating, anxiousRating: anxiousRating, creativeRating: creativeRating, depressionRating: depressionRating, dizzyRating: dizzyRating, dryeyesRating: dryeyesRating, drymouthRating: drymouthRating, euphoricRating: euphoricRating, happyRating: happyRating,insomniaRating: insomniaRating, painRating: painRating, paranoidRating: paranoidRating, relaxedRating: relaxedRating, stressRating: stressRating, upliftedRating: upliftedRating))
 				}
 				
 				self.viewModel.reviews = reviews
+				 
+				self.viewModel.calculateAverageRatings(reviews: reviews)
 			}
 		})
 		.partialSheet(presented: self.$viewModel.showAuthView, backgroundColor: Color("OceanBlue"), handlerBarColor: Color.white, enableCover: true, coverColor: Color.black.opacity(0.8), view: {
@@ -301,5 +344,75 @@ class ProductDetailViewModel: NSObject, ObservableObject, GIDSignInDelegate {
 	   }.joined()
 
 	   return hashString
+	}
+	
+	//
+	
+	@Published var averageAnxietyRating: Float = 0.0
+	@Published var averageAnxiousRating: Float = 0.0
+	@Published var averageCreativeRating: Float = 0.0
+	@Published var averageDepressionRating: Float = 0.0
+	@Published var averageDizzyRating: Float = 0.0
+	@Published var averageDryeyesRating: Float = 0.0
+	@Published var averageDrymouthRating: Float = 0.0
+	@Published var averageEuphoricRating: Float = 0.0
+	@Published var averageHappyRating: Float = 0.0
+	@Published var averageInsomniaRating: Float = 0.0
+	@Published var averagePainRating: Float = 0.0
+	@Published var averageParanoidRating: Float = 0.0
+	@Published var averageRelaxedRating: Float = 0.0
+	@Published var averageStressRating: Float = 0.0
+	@Published var averageUpliftedRating: Float = 0.0
+	
+	func calculateAverageRatings(reviews: [Review]) {
+		var totalAnxietyRating: Float = 0.0
+		var totalAnxiousRating: Float = 0.0
+		var totalCreativeRating: Float = 0.0
+		var totalDepressionRating: Float = 0.0
+		var totalDizzyRating: Float = 0.0
+		var totalDryeyesRating: Float = 0.0
+		var totalDrymouthRating: Float = 0.0
+		var totalEuphoricRating: Float = 0.0
+		var totalHappyRating: Float = 0.0
+		var totalInsomniaRating: Float = 0.0
+		var totalPainRating: Float = 0.0
+		var totalParanoidRating: Float = 0.0
+		var totalRelaxedRating: Float = 0.0
+		var totalStressRating: Float = 0.0
+		var totalUpliftedRating: Float = 0.0
+		
+		for review in self.reviews {
+			totalAnxietyRating += review.anxietyRating
+			totalAnxiousRating += review.anxiousRating
+			totalCreativeRating += review.creativeRating
+			totalDepressionRating += review.depressionRating
+			totalDizzyRating += review.dizzyRating
+			totalDryeyesRating += review.dryeyesRating
+			totalDrymouthRating += review.drymouthRating
+			totalEuphoricRating += review.euphoricRating
+			totalHappyRating += review.happyRating
+			totalInsomniaRating += review.insomniaRating
+			totalPainRating += review.painRating
+			totalParanoidRating += review.paranoidRating
+			totalRelaxedRating += review.relaxedRating
+			totalStressRating += review.stressRating
+			totalUpliftedRating += review.upliftedRating
+		}
+		
+		averageAnxietyRating = totalAnxietyRating / Float(reviews.count)
+		averageAnxiousRating = totalAnxiousRating / Float(reviews.count)
+		averageCreativeRating = totalCreativeRating / Float(reviews.count)
+		averageDepressionRating = totalDepressionRating / Float(reviews.count)
+		averageDizzyRating = totalDizzyRating / Float(reviews.count)
+		averageDryeyesRating = totalDryeyesRating / Float(reviews.count)
+		averageDrymouthRating = totalDrymouthRating / Float(reviews.count)
+		averageEuphoricRating = totalEuphoricRating / Float(reviews.count)
+		averageHappyRating = totalHappyRating / Float(reviews.count)
+		averageInsomniaRating = totalInsomniaRating / Float(reviews.count)
+		averagePainRating = totalPainRating / Float(reviews.count)
+		averageParanoidRating = totalParanoidRating / Float(reviews.count)
+		averageRelaxedRating = totalRelaxedRating / Float(reviews.count)
+		averageStressRating = totalStressRating / Float(reviews.count)
+		averageUpliftedRating = totalUpliftedRating / Float(reviews.count)
 	}
 }
