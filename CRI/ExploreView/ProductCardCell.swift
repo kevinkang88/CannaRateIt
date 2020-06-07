@@ -27,7 +27,7 @@ struct ProductCardCell: View {
 					}
 				}
 				
-				Stars(count: Int(self.product.averageRating)).padding(.top, -40)
+				Stars(count: Int(self.product.averageRating.rounded(.towardZero))).padding(.top, -40)
 				
 				Spacer().frame(height: 8.0)
 			}.cornerRadius(20.0)
