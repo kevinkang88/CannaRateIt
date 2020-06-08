@@ -261,7 +261,11 @@ class AddProductFormDataStore: ObservableObject {
 		self.rating = (happyRating + euphoricRating + relaxedRating + upliftedRating + creativeRating + stressRating + anxietyRating + depressionRating + painRating + insomniaRating + (5 - drymouthRating) + (5 - dryeyesRating) + (5 - paranoidRating) + (5 - dizzyRating) + (5 - anxiousRating)) / 15.0
 	}
 	
-	let categories = ["drop","vape","edible","pet","topical"]
+	let categories = ["drop",
+//					  "vape",
+					  "edible",
+					  "pet",
+					  "topical"]
 	
 	func addProductToFirebase() {
 		

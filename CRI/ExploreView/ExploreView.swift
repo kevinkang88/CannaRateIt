@@ -169,9 +169,9 @@ struct ExploreView: View {
 					print("apple sign in tapped")
 				}) {
 					HStack {
-						Image("apple-icon").renderingMode(.original).resizable().aspectRatio(contentMode: .fit).frame(width: 50, height: 50)
-						Text("Sign in with Apple")
-							.font(Font.custom("AirbnbCerealApp-Medium", size: 14.0))
+						Image("apple-icon").renderingMode(.original).resizable().aspectRatio(contentMode: .fit).frame(width: 38, height: 38)
+						Text("Sign up with Apple")
+							.font(Font.system(size: 19.0))
 							.foregroundColor(Color.black).padding()
 					}.padding(.horizontal).padding(.vertical, 5.0).background(Color.white).cornerRadius(10.0)
 				}

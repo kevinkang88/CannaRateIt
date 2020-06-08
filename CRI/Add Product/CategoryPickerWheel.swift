@@ -14,7 +14,11 @@ struct CategoryPickerWheel: View {
 	
 	@Binding var selectedCategoryIndex: Int
 	
-	let categories = ["drop","vape","edible","pet","topical"]
+	let categories = ["drop",
+//					  "vape",
+					  "edible",
+					  "pet",
+					  "topical"]
 	
     var body: some View {
 		VStack {
