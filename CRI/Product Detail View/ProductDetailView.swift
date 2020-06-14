@@ -127,7 +127,7 @@ struct ProductDetailView: View {
 				}
 				
 				VStack(alignment: .leading) {
-					ForEach(self.viewModel.reviews, id: \.self) { review in
+					ForEach(self.viewModel.reviewComments, id: \.self) { review in
 						HStack {
 							ZStack {
 								Image("anon-user").renderingMode(.template).resizable().frame(width: 30.0, height: 30.0).foregroundColor(Color.gray.opacity(0.3))
@@ -180,10 +180,14 @@ struct ProductDetailView: View {
 					let relaxedRating = doc.document.data()["relaxedRating"] as! Float
 					let stressRating = doc.document.data()["stressRating"] as! Float
 					let upliftedRating = doc.document.data()["upliftedRating"] as! Float
+					let isProductCreator = doc.document.data()["isProductCreator"] as! Bool
+					let lastUpdated = (doc.document.data()["lastUpdated"] as! Timestamp).dateValue() as! Date
 					
-					reviews.append(Review(id: id, userID: userID, productID: productID, averageRating: averageRating, reviewText: reviewText, anxietyRating: anxietyRating, anxiousRating: anxiousRating, creativeRating: creativeRating, depressionRating: depressionRating, dizzyRating: dizzyRating, dryeyesRating: dryeyesRating, drymouthRating: drymouthRating, euphoricRating: euphoricRating, happyRating: happyRating,insomniaRating: insomniaRating, painRating: painRating, paranoidRating: paranoidRating, relaxedRating: relaxedRating, stressRating: stressRating, upliftedRating: upliftedRating))
+					reviews.append(Review(id: id, userID: userID, productID: productID, averageRating: averageRating, reviewText: reviewText, anxietyRating: anxietyRating, anxiousRating: anxiousRating, creativeRating: creativeRating, depressionRating: depressionRating, dizzyRating: dizzyRating, dryeyesRating: dryeyesRating, drymouthRating: drymouthRating, euphoricRating: euphoricRating, happyRating: happyRating,insomniaRating: insomniaRating, painRating: painRating, paranoidRating: paranoidRating, relaxedRating: relaxedRating, stressRating: stressRating, upliftedRating: upliftedRating, isProductCreator: isProductCreator, lastUpdated: lastUpdated))
 				}
 				
+				reviews.sort(by: { $0.lastUpdated > $1.lastUpdated})
+				self.viewModel.reviewComments = reviews.filter({ !$0.isProductCreator })
 				self.viewModel.reviews = reviews
 				 
 				self.viewModel.calculateAverageRatings(reviews: reviews)
@@ -237,6 +241,8 @@ class ProductDetailViewModel: NSObject, ObservableObject, GIDSignInDelegate {
 	@Published var showAuthView = false
 	
 	@Published var reviews = [Review]()
+	
+	@Published var reviewComments = [Review]()
 	
 	@Published var attemptAddReview = false {
 		didSet {

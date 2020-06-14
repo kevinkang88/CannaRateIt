@@ -31,6 +31,9 @@ struct Review: Hashable, Codable, Identifiable {
 	var stressRating: Float
 	var upliftedRating: Float
 	
+	var isProductCreator: Bool
+	var lastUpdated: Date
+	
 	enum Category: String, CaseIterable, Codable, Hashable {
 		case userID
 		case productID
@@ -51,5 +54,7 @@ struct Review: Hashable, Codable, Identifiable {
 		case relaxedRating
 		case stressRating
 		case upliftedRating
+		case isProductCreator
+		case lastUpdated
 	}
 }
