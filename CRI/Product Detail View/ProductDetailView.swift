@@ -203,7 +203,7 @@ struct ProductDetailView: View {
 					print("apple sign in tapped")
 				}) {
 					HStack {
-						Image("apple-icon").renderingMode(.original).resizable().aspectRatio(contentMode: .fit).frame(width: 50, height: 50)
+						Image("apple-icon").renderingMode(.original).resizable().aspectRatio(contentMode: .fit).frame(width: 38, height: 38)
 						Text("Sign up with Apple")
 							.font(Font.system(size: 19.0))
 							.foregroundColor(Color.black).padding()
@@ -215,9 +215,9 @@ struct ProductDetailView: View {
 					self.socialLogin.attemptLoginGoogle()
 				}) {
 					HStack {
-						Image("google-icon").renderingMode(.original).resizable().aspectRatio(contentMode: .fit).frame(width: 50, height: 50)
+						Image("google-icon").renderingMode(.original).resizable().aspectRatio(contentMode: .fit).frame(width: 38, height: 38)
 						Text("Sign in with Google")
-							.font(Font.custom("AirbnbCerealApp-Medium", size: 14.0))
+							.font(Font.system(size: 19.0))
 							.foregroundColor(Color.black).padding()
 					}.padding(.horizontal).padding(.vertical, 5.0).background(Color.white).cornerRadius(10.0)
 				}

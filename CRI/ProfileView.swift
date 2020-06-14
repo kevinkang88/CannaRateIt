@@ -11,6 +11,8 @@ import SwiftUI
 import Firebase
 
 struct ProfileView: View {
+	
+	@Binding var showProfileView: Bool
 		
 	@State var signOutTriggered: Bool = false {
 		didSet {
@@ -41,6 +43,7 @@ struct ProfileView: View {
 	
 	private func signout() {
 		do {
+			self.showProfileView = false
 			try Auth.auth().signOut()
 		} catch {
 			print("yo man..")

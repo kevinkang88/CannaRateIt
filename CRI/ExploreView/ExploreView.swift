@@ -181,9 +181,9 @@ struct ExploreView: View {
 					self.socialLogin.attemptLoginGoogle()
 				}) {
 					HStack {
-						Image("google-icon").renderingMode(.original).resizable().aspectRatio(contentMode: .fit).frame(width: 50, height: 50)
+						Image("google-icon").renderingMode(.original).resizable().aspectRatio(contentMode: .fit).frame(width: 38, height: 38)
 						Text("Sign in with Google")
-							.font(Font.custom("AirbnbCerealApp-Medium", size: 14.0))
+							.font(Font.system(size: 19.0))
 							.foregroundColor(Color.black).padding()
 					}.padding(.horizontal).padding(.vertical, 5.0).background(Color.white).cornerRadius(10.0)
 				}
@@ -240,7 +240,7 @@ struct ExploreView: View {
 				Spacer()
 			}
 		}.sheet(isPresented: self.$viewModel.showSheet) {
-			self.viewModel.shitSheet
+			self.viewModel.shitSheet(showingProfileView: self.$viewModel.showSheet)
 		}
 	}
 }
@@ -363,9 +363,9 @@ class ExploreViewModel: NSObject, ObservableObject, GIDSignInDelegate {
 	
 	@Published var showSheet: Bool = false
 	
-	var shitSheet: some View {
+	func shitSheet(showingProfileView: Binding<Bool>) -> some View {
 		if showProfileView {
-			return AnyView(ProfileView())
+			return AnyView(ProfileView(showProfileView: showingProfileView))
 		} else {
 			return AnyView(ProductDetailView(product: self.selectedProduct))
 		}
